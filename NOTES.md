@@ -27,11 +27,19 @@ This project will be built using Rails API for the backend and JavaScript, HTML 
 
 _For this project, I entered the following in my terminal: `rails new backend-rails-api --api --database=postgresql`._
 
-2. cd into the new folder just created.
-3. Navigate to the gemfile and uncomment gem 'rack-cors'. This will allow [Cross Origin Resource Sharing (CORS)] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API. CORS is a security feature that prevents API calls from unknown origins.
-4. Add gem 'active_model_serializers' to the gemfile. Serialization is the process of converting data into a format that can be transmitted across a computer network and reconstructed later. Backend and frontend of this project will make requests to each other across the interwebs.
-5. Run bundle install.
-6. Inside config/initializers/cors.rb file uncomment the following code:
+**Note**
+`rails new` command will generate a new Rails repository that will include .git folder. In order to ensure that both the frontend and backend can be stored in the same repository on GitHub (in two separate folders), you'll have to delete this .git file as it will prevent you from pushing your new backend repository to GitHub:
+
+1. cd into the new Rails repository just created.
+2. In your terminal enter `rm -r .git`
+3. cd back to the top folder of your project
+4. Ensure that the itmes listes in the .gitignore file at the root of your project are prefaced with the name of your backend repository. For me this meant adding 'backend-rails-api' at the front of each item listed in the .gitignore file.
+
+5. cd into the new folder just created.
+6. Navigate to the gemfile and uncomment gem 'rack-cors'. This will allow [Cross Origin Resource Sharing (CORS)] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API. CORS is a security feature that prevents API calls from unknown origins.
+7. Add gem 'active_model_serializers' to the gemfile. Serialization is the process of converting data into a format that can be transmitted across a computer network and reconstructed later. Backend and frontend of this project will make requests to each other across the interwebs.
+8. Run bundle install.
+9. Inside config/initializers/cors.rb file uncomment the following code:
 
 ```
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
