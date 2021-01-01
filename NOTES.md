@@ -7,4 +7,12 @@ The purpose of this file is to keep continuous notes while working on the projec
 1. Create a new repository in GitHub with .gitignore, README.md and LICENSE files.
 2. Clone the newly created repository to your computer using `git clone` command followed by the SSH link to the GitHub repository.
 
+## Adding .drawio Diagram
+
+1. Create a new .drawio file using `touch .drawio` command.
+2. In the .drawio file create a diagram representing relationships between the backend models using Entity Relation shapes:
+   1. Include title of each model.
+   2. Include characteristings of each model.
+   3. Include relationships between models.
+
 ## Backend Setup
