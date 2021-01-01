@@ -2,6 +2,10 @@
 
 The purpose of this file is to keep continuous notes while working on the project. The intent is to document decisions made and steps taken while coding this project. This file is intended to be a rough draft and will be added to .gitignore. These notes will be utilized to create a README.md file for this project.
 
+## Description of the Project
+
+This project will be built using Rails API for the backend and JavaScript, HTML and CSS for the frontend. Styles will be provided by CSS. This project will be a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user will be able to add, update and delete the items on each list. The user will also be able to create and delete the lists.
+
 ## Creating GitHub Repository
 
 1. Create a new repository in GitHub with .gitignore, README.md and LICENSE files.
