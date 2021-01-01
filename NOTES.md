@@ -20,3 +20,9 @@ This project will be built using Rails API for the backend and JavaScript, HTML 
    3. Include relationships between models.
 
 ## Backend Setup
+
+1. Create Rails API structure by using `rails new` command followed by name of the Rails API:
+   1. Add `--api` flag after the name to ensure that Rails only includes the necessary folders and capabilities for the API.
+   2. Add `--database=postgresql` flag to create the Rails API with Postgres database, instead of the default SQLite3.
+
+_For this project, I entered the following in my terminal: `rails new backend-rails-api --api --database=postgresql`._
