@@ -89,11 +89,11 @@ This will create two migrations, two models, and two empty controllers.
 ```
     def index
         lists = List.all
-        render json: lists, include: [:list_item]
+        render json: lists, include: [:list_items]
     end
 
     def show
         list = List.find_by(params[:id])
-        render json: list, include: [:list_item]
+        render json: list, include: [:list_items]
     end
 ```
