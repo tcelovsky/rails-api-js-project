@@ -198,3 +198,8 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 7. Update the title line in index.html to the desired title.
 8. Open index.html in the browser and confirm the window loads.
 9. Create new JavaScript file by entering `touch src/index.js` in the terminal.
+10. In the index.html file link the JavaScript file to the HTML page by adding the following before the closing </body> tag:
+
+```
+<script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+```
