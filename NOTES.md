@@ -84,7 +84,7 @@ This will create two migrations, two models, and two empty controllers.
 4. Run `rails db:migrate` to migrate the database.
 5. Run `rails db:seed` to seed the database.
 6. Enter `rails c` in the terminal to drop into the Rails console and confirm that the seed data was populated correctly and model relationships are correct.
-7. Navigate to app/controllers/lists_controller and add controller actions:
+7. Navigate to app/controllers/lists_controller.rb and add controller actions:
 
 ```
     def index
@@ -97,3 +97,5 @@ This will create two migrations, two models, and two empty controllers.
         render json: list, include: [:list_items]
     end
 ```
+
+8. Navigate to app/serializers/list_serializer.rb and add `had_many :list_items` attribute.
