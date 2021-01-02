@@ -194,3 +194,5 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 </body>
 </html>
 ```
+
+7. Update the title line in index.html to the desired title.
