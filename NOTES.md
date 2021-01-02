@@ -233,3 +233,11 @@ const LISTS_URL = `${BASE_URL}/lists`
 const LIST_ITEMS_URL = `${BASE_URL}/list_items`
 const main = document.querySelector("main")
 ```
+
+3. Test that frontend and backend are linked correctly by adding a simple fetch request to index.js; then refresh HTML page in the browser and confirm that JSON data is rendered in the JavaScript console:
+
+```
+fetch(`${LISTS_URL}`)
+  .then(response => response.json())
+  .then(parsedResponse => console.log(parsedResponse));
+```
