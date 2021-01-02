@@ -72,18 +72,19 @@ This will create two migrations, two models, and two empty controllers.
    list_a = List.create(title: "To Do")
    list_b = List.create(title: "Grocery Shopping")
 
-   list_item_a = ListItem.create(list: list_b, content: "Pick up dry cleaning")
-   list_item_b = ListItem.create(list: list_b, content: "Clean")
-   list_item_c = ListItem.create(list: list_b, content: "Finish work project")
+   list_item_a = ListItem.create(list: list_a, content: "Pick up dry cleaning")
+   list_item_b = ListItem.create(list: list_a, content: "Clean")
+   list_item_c = ListItem.create(list: list_a, content: "Finish work project")
 
    list_item_d = ListItem.create(list: list_b, content: "Milk")
    list_item_e = ListItem.create(list: list_b, content: "Eggs")
    list_item_f = ListItem.create(list: list_b, content: "Beans")
 
 3. Run `rails db:create` to create the database.
-4. Run `rails db:migrate`.
-5. Run `rails db:seed` to see the database.
-6. Navigate to app/controllers/lists_controller and add controller actions:
+4. Run `rails db:migrate` to migrate the database.
+5. Run `rails db:seed` to seed the database.
+6. Enter `rails c` in the terminal to drop into the Rails console and confirm that the seed data was populated correctly and model relationships are correct.
+7. Navigate to app/controllers/lists_controller and add controller actions:
 
 ```
     def index
