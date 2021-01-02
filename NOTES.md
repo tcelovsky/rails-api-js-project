@@ -203,3 +203,5 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 ```
 <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
 ```
+
+11. Confirm that JavaScrip file was correctly linked to the HTML page by adding `console.log("JS linked to HTML")` to index.js file; then refresh the HTML page in the browser and confirm that the output is displayed in the JavaScript console.
