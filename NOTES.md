@@ -80,9 +80,10 @@ This will create two migrations, two models, and two empty controllers.
    list_item_e = List_item.create(list: list_b, content: "Eggs")
    list_item_f = List_item.create(list: list_b, content: "Beans")
 
-3. Run `rails db:migrate`.
-4. Run `rails db:seed` to see the database.
-5. Navigate to app/controllers/lists_controller and add controller actions:
+3. Run `rails db:create` to create the database.
+4. Run `rails db:migrate`.
+5. Run `rails db:seed` to see the database.
+6. Navigate to app/controllers/lists_controller and add controller actions:
 
 ```
     def index
