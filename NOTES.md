@@ -201,7 +201,7 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 10. In the index.html file link the JavaScript file to the HTML page by adding the following before the closing </body> tag:
 
 ```
-<script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/index.js"></script>
 ```
 
 11. Confirm that JavaScrip file was correctly linked to the HTML page by adding `console.log("JS linked to HTML")` to index.js file; then refresh the HTML page in the browser and confirm that the output is displayed in the JavaScript console.
