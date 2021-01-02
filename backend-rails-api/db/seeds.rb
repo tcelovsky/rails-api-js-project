@@ -9,10 +9,10 @@
 list_a = List.create(title: "To Do")
 list_b = List.create(title: "Grocery Shopping")
 
-list_item_a = List_item.create(list: list_b, content: "Pick up dry cleaning")
-list_item_b = List_item.create(list: list_b, content: "Clean")
-list_item_c = List_item.create(list: list_b, content: "Finish work project")
+list_item_a = ListItem.create(list: list_b, content: "Pick up dry cleaning")
+list_item_b = ListItem.create(list: list_b, content: "Clean")
+list_item_c = ListItem.create(list: list_b, content: "Finish work project")
 
-list_item_d = List_item.create(list: list_b, content: "Milk")
-list_item_e = List_item.create(list: list_b, content: "Eggs")
-list_item_f = List_item.create(list: list_b, content: "Beans")
+list_item_d = ListItem.create(list: list_b, content: "Milk")
+list_item_e = ListItem.create(list: list_b, content: "Eggs")
+list_item_f = ListItem.create(list: list_b, content: "Beans")
