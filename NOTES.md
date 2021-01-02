@@ -178,3 +178,4 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 
 3. cd into the newly created directory.
 4. Create HTML file by entering `touch index.html` in the terminal.
+5. Create source and styles folders by entering `mkdir src styles` in the terminal.
