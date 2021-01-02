@@ -35,11 +35,13 @@ _For this project, I entered the following in my terminal: `rails new backend-ra
 3. cd back to the top folder of your project
 4. Ensure that the itmes listes in the .gitignore file at the root of your project are prefaced with the name of your backend repository. For me this meant adding 'backend-rails-api' at the front of each item listed in the .gitignore file.
 
-5. cd into the new folder just created.
-6. Navigate to the gemfile and uncomment gem 'rack-cors'. This will allow [Cross Origin Resource Sharing (CORS)] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API. CORS is a security feature that prevents API calls from unknown origins.
-7. Add gem 'active_model_serializers' to the gemfile. Serialization is the process of converting data into a format that can be transmitted across a computer network and reconstructed later. Backend and frontend of this project will make requests to each other across the interwebs.
-8. Run bundle install.
-9. Inside config/initializers/cors.rb file uncomment the following code:
+Continuiong with the backend setup:
+
+2. cd into the new folder just created.
+3. Navigate to the gemfile and uncomment gem 'rack-cors'. This will allow [Cross Origin Resource Sharing (CORS)] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API. CORS is a security feature that prevents API calls from unknown origins.
+4. Add gem 'active_model_serializers' to the gemfile. Serialization is the process of converting data into a format that can be transmitted across a computer network and reconstructed later. Backend and frontend of this project will make requests to each other across the interwebs.
+5. Run bundle install.
+6. Inside config/initializers/cors.rb file uncomment the following code:
 
 ```
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
