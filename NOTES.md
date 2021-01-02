@@ -208,4 +208,19 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 
 ## Coding the Frontend
 
-1.
+1. Add the following within the <body> tax of index.html:
+
+```
+<div class="container">
+        <div id="new-list-container">
+          <form id="new-list-form">
+            <input type="text" name="list-title" id="new-list-title">
+            <input type="text" name="list-item" id="new-list-item">
+            <input type="submit" value="Add List">
+          </form>
+        </div>
+        <div id="lists-container">
+
+        </div>
+    </div>
+```
