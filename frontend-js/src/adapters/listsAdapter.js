@@ -5,7 +5,7 @@ const main = document.querySelector("main")
 
 class ListsAdapter {
     constructor() {
-        this.baseUrl = BASE_URL
+        this.baseUrl = LISTS_URL
     }
 
     getLists() {
