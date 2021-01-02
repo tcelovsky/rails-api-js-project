@@ -101,3 +101,30 @@ This will create two migrations, two models, and two empty controllers.
 8. Navigate to app/serializers/list_serializer.rb and add `had_many :list_items` attribute.
 9. Start Rails server by entering `rails s` in your terminal and navigate to localhost:3000/lists in your browser. Confirm that JSON is rendered correctly on the page.
 10. With the Rails server running, navigate to localhost:3000/lists/1 in your browser. Confirm that JSON is rendered correctly on the page.
+11. Navigate to app/controllers/lists_controller.rb and add create, update and delete controller actions:
+
+```
+def create
+        list = List.create(list_params)
+        render json: list
+    end
+
+    def update
+        list = List.find(params[:id])
+        list = List.update(list_params)
+        render json: list
+    end
+
+    def delete
+        list = List.find(params[:id])
+        list.delete
+        render json: {listId: list.id}
+    end
+
+    private
+    def list_params
+        params.require(:list).permit(:title)
+    end
+```
+
+12. Navigate to app/controllers/list_items_controller.rb and add controller actions:
