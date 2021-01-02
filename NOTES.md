@@ -224,3 +224,12 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
         </div>
     </div>
 ```
+
+2. Add URL const's to index.js:
+
+```
+const BASE_URL = "http://localhost:3000"
+const LISTS_URL = `${BASE_URL}/lists`
+const LIST_ITEMS_URL = `${BASE_URL}/list_items`
+const main = document.querySelector("main")
+```
