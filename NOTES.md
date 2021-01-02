@@ -179,3 +179,18 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 3. cd into the newly created directory.
 4. Create HTML file by entering `touch index.html` in the terminal.
 5. Create source and styles folders by entering `mkdir src styles` in the terminal.
+6. Navigate to index.html and add the basic HTML architecture:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+```
