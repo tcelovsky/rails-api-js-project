@@ -128,3 +128,18 @@ def create
 ```
 
 12. Navigate to app/controllers/list_items_controller.rb and add controller actions:
+
+```
+def index
+        list_items = ListItem.all
+        render json: list_items
+    end
+
+    def show
+        list_item = ListItem.find(params[:id])
+        render json: list_item
+    end
+```
+
+13. With the Rails server running, navigate to localhost:3000/list_items in your browser. Confirm that JSON is rendered correctly on the page.
+14. With the Rails server running, navigate to localhost:3000/list_items/1 in your browser. Confirm that JSON is rendered correctly on the page.
