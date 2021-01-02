@@ -56,3 +56,40 @@ end
 ```
 
 Inside the allow block, origins '\*' means that requests from all origins are allowed. This can be changed to only allow requests from the address of the frontend repo - localhost:3000 for example.
+
+## Coding the Backend
+
+1. Use Rails resource generator to create resources:
+
+```
+rails g resource list title
+rails g resource list_item content list:references
+```
+
+This will create two migrations, two models, and two empty controllers.
+
+2. Add seed data:
+   list_a = List.create(title: "To Do")
+   list_b = List.create(title: "Grocery Shopping")
+
+   list_item_a = List_item.create(list: list_b, content: "Pick up dry cleaning")
+   list_item_b = List_item.create(list: list_b, content: "Clean")
+   list_item_c = List_item.create(list: list_b, content: "Finish work project")
+
+   list_item_d = List_item.create(list: list_b, content: "Milk")
+   list_item_e = List_item.create(list: list_b, content: "Eggs")
+   list_item_f = List_item.create(list: list_b, content: "Beans")
+
+3. Navigate to app/controllers/list_controller and add controller actions:
+
+```
+    def index
+        lists = List.all
+        render json: lists, include: [:list_item]
+    end
+
+    def show
+        list = List.find_by(params[:id])
+        render json: list, include: [:list_item]
+    end
+```
