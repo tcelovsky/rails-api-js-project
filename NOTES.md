@@ -99,3 +99,5 @@ This will create two migrations, two models, and two empty controllers.
 ```
 
 8. Navigate to app/serializers/list_serializer.rb and add `had_many :list_items` attribute.
+9. Start Rails server by entering `rails s` in your terminal and navigate to localhost:3000/lists in your browser. Confirm that JSON is rendered correctly on the page.
+10. With the Rails server running, navigate to localhost:3000/lists/1 in your browser. Confirm that JSON is rendered correctly on the page.
