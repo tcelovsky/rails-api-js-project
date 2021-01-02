@@ -168,3 +168,12 @@ def index
         params.require(:list_item).permit(:content)
     end
 ```
+
+## Frontend Setup
+
+1. cd to the root folder of your project.
+2. Create frontend directory by using `mkdir` command followed by the desired name for the frontend directory.
+
+_For this project, I entered the following in my terminal: `mkdir frontend-js`._
+
+3. cd into the newly created directory.
