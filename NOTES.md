@@ -143,3 +143,28 @@ def index
 
 13. With the Rails server running, navigate to localhost:3000/list_items in your browser. Confirm that JSON is rendered correctly on the page.
 14. With the Rails server running, navigate to localhost:3000/list_items/1 in your browser. Confirm that JSON is rendered correctly on the page.
+15. Navigate to app/controllers/list_items_controller.rb and add create, update and delete controller actions:
+
+```
+    def create
+        list = List.find(params[:list_id])
+        list_item = list.list_item.build(list_item_params)
+        render json: list_item.save ? list_item : {message: list_item.errors.messages[0]}
+    end
+
+    def update
+        list = List.find(params[:list_id])
+        list_item = list.list_item.update(list_item_params)
+        render json: list_item
+    end
+
+    def delete
+        list_item = ListItem.find(params[:id])
+        list_item.delete
+    end
+
+    private
+    def list_item_params
+        params.require(:list_item).permit(:content)
+    end
+```
