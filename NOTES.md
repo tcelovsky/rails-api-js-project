@@ -225,18 +225,12 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
     </div>
 ```
 
-2. Add URL const's to index.js:
+3. Test that frontend and backend are linked correctly by adding a simple fetch request to index.js; then refresh HTML page in the browser and confirm that JSON data is rendered in the JavaScript console:
 
 ```
 const BASE_URL = "http://localhost:3000"
 const LISTS_URL = `${BASE_URL}/lists`
-const LIST_ITEMS_URL = `${BASE_URL}/list_items`
-const main = document.querySelector("main")
-```
 
-3. Test that frontend and backend are linked correctly by adding a simple fetch request to index.js; then refresh HTML page in the browser and confirm that JSON data is rendered in the JavaScript console:
-
-```
 fetch(`${LISTS_URL}`)
   .then(response => response.json())
   .then(parsedResponse => console.log(parsedResponse));
@@ -245,3 +239,44 @@ fetch(`${LISTS_URL}`)
 4. cd into src folder and create adapters and components directories by entering `mkdir adapters components` in the terminal.
 5. Add the following to index.js file: `const app = new App()`. The index.js file has only one responsibility - creating the new App object.
 6. In the src/adapters folder create listsAdapter.js file. This adapter will be responsible for communicating with the rails API backend.
+7. Add the following consts to listsAdapter.js file:
+
+```
+const BASE_URL = "http://localhost:3000"
+const LISTS_URL = `${BASE_URL}/lists`
+```
+
+8. Create listsAdapter class and add the following code to listsAdapter.js file:
+
+```
+class ListsAdapter {
+    constructor() {
+        this.baseUrl = LISTS_URL
+    }
+
+    getLists() {
+        return fetch(this.baseUrl).then(res => res.json())
+    }
+
+    createList(title) {
+        const listCreateParams = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ title })
+        }
+        return fetch(this.baseUrl, listCreateParams).then(res => res.json())
+    }
+
+    deleteList(listId) {
+        const listDeleteParams = {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json"
+            }
+        }
+        return fetch(`${this.baseUrl}/${listId}`, listDeleteParams).then(res => res.json())
+    }
+}
+```
