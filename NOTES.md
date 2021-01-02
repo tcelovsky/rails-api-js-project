@@ -243,3 +243,4 @@ fetch(`${LISTS_URL}`)
 ```
 
 4. cd into src folder and create adapters and components directories by entering `mkdir adapters components` in the terminal.
+5. Add the following to index.js file: `const app = new App()`. The index.js file has only one responsibility - creating the new App object.
