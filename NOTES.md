@@ -282,3 +282,12 @@ class ListsAdapter {
 ```
 
 9. cd into src/components folder and crate the following files: app.js, list.js and lists.js by running `mkdir app.js list.js lists.js` command in the terminal.
+10. Create the App class in app.js:
+
+```
+class App {
+    constructor() {
+      this.lists = new Lists()
+    }
+}
+```
