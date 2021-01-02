@@ -293,3 +293,16 @@ class App {
 ```
 
 The idea is that index.js will get loaded and will call `new App()`, which will run the App constructor function. The App constructor will set a property on the newly created app called lists that points to a new instance of the Lists object.
+
+11. Create new Lists class in lists.js:
+
+```
+class Lists {
+    constructor() {
+        this.list = []
+        this.initBindingsAndEventListeners()
+        this.adapter = new ListsAdapter()
+        this.fetchAndLoadLists()
+    }
+}
+```
