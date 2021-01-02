@@ -241,3 +241,5 @@ fetch(`${LISTS_URL}`)
   .then(response => response.json())
   .then(parsedResponse => console.log(parsedResponse));
 ```
+
+4. cd into src folder and create adapters and components directories by entering `mkdir adapters components` in the terminal.
