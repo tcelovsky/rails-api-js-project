@@ -8,7 +8,9 @@ class ListsAdapter {
         this.baseUrl = LISTS_URL
     }
 
-    getLists() {
+    document.addEventListener("DOMContentLoaded", () => loadLists())
+
+    loadLists() {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
