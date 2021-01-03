@@ -11,9 +11,7 @@ class ListsAdapter {
     }
 
     loadLists() {
-        return fetch(this.baseUrl).then(res => res.json()).then(json => {
-            json.forEach(list => renderList(list))
-        })
+        return fetch(this.baseUrl).then(res => res.json())
     }
 
     // createList(title) {
