@@ -3,7 +3,7 @@ class Lists {
         this.list = []
         // this.initBindingsAndEventListeners()
         this.adapter = new ListsAdapter()
-        this.renderLists()
+        this.loadLists()
     }
 
     // initBindingsAndEventListeners() {
@@ -14,11 +14,16 @@ class Lists {
     //     this.listsNode.addEventListener('click',this.handleDeleteList.bind(this))
     // }
 
-    renderLists() {
-        this.adapter.loadLists().then(json => {
-            json.forEach(list => console.log(list))
+    loadLists() {
+        this.adapter.getLists().then(json => {
+            json.forEach(list => renderLists(list))
         })
     }
+
+    renderLists(list) {
+        console.log(list)
+    }
+
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
     //       .then( this.render.bind(this) )
     //       .catch( (error) => console.log(error) )

@@ -1,13 +1,13 @@
-class List {
-    constructor(listJSON) {
-        this.title = listJSON.title
-        this.id = listJSON.id
-        this.listItems = listJSON.list_items
-    }
+// class List {
+//     constructor(listJSON) {
+//         this.title = listJSON.title
+//         this.id = listJSON.id
+//         this.listItems = listJSON.list_items
+//     }
 
-    renderShow() {
-        return `<h3>${this.title}</h3>`
-    }
+//     renderShow() {
+//         return `<h3>${this.title}</h3>`
+//     }
 
     // render() {
     //     return ```
@@ -18,4 +18,4 @@ class List {
     //     </li>
     //     ```
     // }
-}
+// }
