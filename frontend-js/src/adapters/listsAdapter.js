@@ -3,8 +3,6 @@ const LISTS_URL = `${BASE_URL}/lists`
 const LIST_ITEMS_URL = `${BASE_URL}/list_items`
 const main = document.querySelector("main")
 
-document.addEventListener("DOMContentLoaded", () => ListsAdapter)
-
 class ListsAdapter {
     constructor() {
         this.baseUrl = LISTS_URL

@@ -14,12 +14,14 @@ class Lists {
     //     this.listsNode.addEventListener('click',this.handleDeleteList.bind(this))
     // }
 
-    // fetchAndLoadLists() {
-    //     this.adapter.getLists()
+    renderLists() {
+        this.adapter.loadLists().then(json => {
+            json.forEach(list => console.log(list))
+        })
+    }
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
     //       .then( this.render.bind(this) )
     //       .catch( (error) => console.log(error) )
-    //   }
 
     //   handleAddList() {
     //     event.preventDefault()
