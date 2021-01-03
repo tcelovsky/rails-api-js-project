@@ -1,6 +1,6 @@
 class Lists {
     constructor() {
-        this.list = []
+        this.lists = []
         // this.initBindingsAndEventListeners()
         this.adapter = new ListsAdapter()
         this.loadLists()
@@ -15,13 +15,17 @@ class Lists {
     // }
 
     loadLists() {
-        this.adapter.getLists().then(json => {
-            json.forEach(list => renderLists(list))
+        this.adapter.getLists().then(lists => {
+            lists.forEach(list => this.lists.push(list))
+        })
+        .then(() => {
+            this.render()
         })
     }
 
-    renderLists(list) {
-        console.log(list)
+    render() {
+        const listsContainer = document.getElementById('lists-container')
+        listsContainer.innerHTML = 'my lists here'
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
