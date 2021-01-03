@@ -8,7 +8,7 @@ class ListsAdapter {
         this.baseUrl = LISTS_URL
     }
 
-    loadLists() {
+    getLists() {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
