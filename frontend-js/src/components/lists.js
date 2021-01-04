@@ -1,5 +1,5 @@
 const main = document.querySelector("main")
-const listContainer = document.querySelector("#list-container")
+const listsContainer = document.querySelector("#lists-container")
 
 class Lists {
     constructor() {
@@ -25,10 +25,11 @@ class Lists {
 
     renderList(list) {
         console.log(list)
-        listContainer.setAttribute("data-id", list.id)
-
+        const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
+        div.setAttribute("id", "list-container")
+        div.setAttribute("data-id", list.id)
         h3.setAttribute("data-id", list.id)
         ul.setAttribute("data-id", list.id)
 
@@ -36,7 +37,8 @@ class Lists {
         list.list_items.forEach(list_item => this.renderListItem(list_item))
 
         h3.appendChild(ul)
-        listContainer.appendChild(h3)
+        div.appendChild(h3)
+        listsContainer.appendChild(div)
     }
 
     renderListItem(list_item) {
@@ -44,6 +46,9 @@ class Lists {
         li.setAttribute("data-id", list_item.id)
 
         li.innerText = list_item.content
+
+        const ul = document.querySelector(`div [data-id="${list_item.list_id}]`)
+        console.log(ul)
         // ul.appendChild(li)
     }
 }
