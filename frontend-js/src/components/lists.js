@@ -19,20 +19,18 @@ class Lists {
 
     loadLists() {
         this.adapter.getLists().then(lists => {
-            lists.forEach(list => this.lists.push(list))
-        })
-        .then(() => {
-            this.renderLists()
+            lists.forEach(list => this.renderList(list))
         })
     }
 
-    renderLists() {
-        console.log(this)
-        listsContainer.setAttribute("data-id", this.id)
+    renderList(list) {
+        console.log(list)
+        listsContainer.setAttribute("data-id", list.id)
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
 
-        
+        h3.innerText = list.title
+        listsContainer.appendChild(h3)
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
