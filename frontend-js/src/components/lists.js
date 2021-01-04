@@ -26,21 +26,25 @@ class Lists {
     renderList(list) {
         console.log(list)
         listContainer.setAttribute("data-id", list.id)
+
         const h3 = document.createElement("h3")
+        const ul = document.createElement("ul")
+        h3.setAttribute("data-id", list.id)
+        ul.setAttribute("data-id", list.id)
 
         h3.innerText = list.title
         list.list_items.forEach(list_item => this.renderListItem(list_item))
+
+        h3.appendChild(ul)
         listContainer.appendChild(h3)
     }
 
     renderListItem(list_item) {
-        const ul = document.createElement("ul")
         const li = document.createElement("li")
         li.setAttribute("data-id", list_item.id)
 
         li.innerText = list_item.content
-        ul.appendChild(li)
-        h3.appendChild(ul)
+        // ul.appendChild(li)
     }
 }
 
