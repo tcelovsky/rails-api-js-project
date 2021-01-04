@@ -1,18 +1,13 @@
-const main = document.querySelector("main")
 const listsContainer = document.querySelector("#lists-container")
 
 class Lists {
     constructor() {
-        this.lists = []
         this.addEventListeners()
         this.adapter = new ListsAdapter()
     }
 
     addEventListeners() {
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
-        this.newListForm = document.getElementById('new-list-form')
-        // this.newListForm.addEventListener('submit',this.addNewList.bind(this))
-        // this.listsNode.addEventListener('click',this.handleDeleteList.bind(this))
     }
 
     loadLists() {
@@ -33,6 +28,7 @@ class Lists {
         ul.setAttribute("data-list-id", list.id)
         button.setAttribute("data-list-id", list.id)
         button.innerText = "Add List Item"
+        button.addEventListener("click", this.addListItem)
 
         h3.innerText = list.title
 
@@ -55,11 +51,23 @@ class Lists {
         ul.appendChild(li)        
     }
 
-    // addNewList() {
-    //     event.preventDefault()
-    //     const title = this.value
-    //     this.adapter.createList(title)
-    //     .then(res => res.json())
-    //   }
+    addListItem(e) {
+        e.preventDefault() //regular behavior will be prevented, no refreshing of the page
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({list_id: e.target.dataset.listId})
+        }
+        fetch(LISTS_URL, configObj).then(res => res.json()).then(json => {
+            if (json.message){
+                alert(json.message)
+            } else {
+                this.renderListItem(json)
+            }
+        })
+    }
 }
 
