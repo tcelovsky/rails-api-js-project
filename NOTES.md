@@ -257,31 +257,10 @@ class ListsAdapter {
     getLists() {
         return fetch(this.baseUrl).then(res => res.json())
     }
-
-    createList(title) {
-        const listCreateParams = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ title })
-        }
-        return fetch(this.baseUrl, listCreateParams).then(res => res.json())
-    }
-
-    deleteList(listId) {
-        const listDeleteParams = {
-            method: "DELETE",
-            headers: {
-                "Content-type": "application/json"
-            }
-        }
-        return fetch(`${this.baseUrl}/${listId}`, listDeleteParams).then(res => res.json())
-    }
 }
 ```
 
-9. cd into src/components folder and crate the following files: app.js, list.js and lists.js by running `mkdir app.js list.js lists.js` command in the terminal.
+9. cd into src/components folder and create the following files: app.js andlists.js by running `mkdir app.js lists.js` command in the terminal.
 10. Create the App class in app.js:
 
 ```
@@ -299,10 +278,49 @@ The idea is that index.js will get loaded and will call `new App()`, which will 
 ```
 class Lists {
     constructor() {
-        this.list = []
-        this.initBindingsAndEventListeners()
+        this.lists = []
+        // this.initBindingsAndEventListeners()
         this.adapter = new ListsAdapter()
-        this.fetchAndLoadLists()
+        this.loadLists()
+    }
+
+    loadLists() {
+        this.adapter.getLists().then(lists => {
+            lists.forEach(list => this.renderList(list))
+        })
+    }
+
+    renderList(list) {
+        console.log(list)
+        const div = document.createElement("div")
+        const h3 = document.createElement("h3")
+        const ul = document.createElement("ul")
+
+        div.setAttribute("id", "list-container")
+        div.setAttribute("data-list-id", list.id)
+        h3.setAttribute("title-list-id", list.id)
+        ul.setAttribute("data-list-id", list.id)
+
+        h3.innerText = list.title
+
+        div.appendChild(h3)
+        div.appendChild(ul)
+        listsContainer.appendChild(div)
+
+        list.list_items.forEach(list_item => this.renderListItem(list_item))
+    }
+
+    renderListItem(list_item) {
+        const ul = document.querySelector(`ul[data-list-id="${list_item.list_id}"]`)
+
+        const li = document.createElement("li")
+        li.setAttribute("data-list_item-id", list_item.id)
+
+        li.innerText = list_item.content
+
+        ul.appendChild(li)
     }
 }
 ```
+
+This Lists Class will communicate with the Lists Adapter and will render the lists on the page.
