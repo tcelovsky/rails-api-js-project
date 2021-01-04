@@ -222,7 +222,7 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
         <div id="lists-container">
 
         </div>
-    </div>
+</div>
 ```
 
 3. Test that frontend and backend are linked correctly by adding a simple fetch request to index.js; then refresh HTML page in the browser and confirm that JSON data is rendered in the JavaScript console:
