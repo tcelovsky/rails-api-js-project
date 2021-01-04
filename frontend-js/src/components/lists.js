@@ -6,7 +6,6 @@ class Lists {
         this.lists = []
         this.addEventListeners()
         this.adapter = new ListsAdapter()
-        // this.loadLists()
     }
 
     addEventListeners() {
@@ -39,6 +38,7 @@ class Lists {
 
         div.appendChild(h3)
         div.appendChild(ul)
+        div.appendChild(button)
         listsContainer.appendChild(div)
 
         list.list_items.forEach(list_item => this.renderListItem(list_item))
