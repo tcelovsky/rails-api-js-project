@@ -1,3 +1,6 @@
+const main = document.querySelector("main")
+const listsContainer = document.querySelector("#lists-container")
+
 class Lists {
     constructor() {
         this.lists = []
@@ -24,8 +27,12 @@ class Lists {
     }
 
     renderLists() {
+        console.log(this)
+        listsContainer.setAttribute("data-id", this.id)
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
+
+        
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
