@@ -26,7 +26,7 @@ class Lists {
         div.setAttribute("data-list-id", list.id)
         h3.setAttribute("title-list-id", list.id)
         ul.setAttribute("data-list-id", list.id)
-        button.setAttribute("data-list-id", list.id)
+        button.setAttribute("button-list-id", list.id)
         button.innerText = "Add List Item"
         button.addEventListener("click", this.addListItem)
 
@@ -65,7 +65,7 @@ class Lists {
             if (json.message){
                 alert(json.message)
             } else {
-                this.renderListItem(json)
+                this.renderListItem(json).bind(this)
             }
         })
     }
