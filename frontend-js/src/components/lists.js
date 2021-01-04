@@ -24,7 +24,8 @@ class Lists {
     }
 
     renderLists() {
-        console.log(this)
+        const h3 = document.createElement("h3")
+        const ul = document.createElement("ul")
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
