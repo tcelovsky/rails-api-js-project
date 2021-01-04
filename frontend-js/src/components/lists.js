@@ -24,7 +24,6 @@ class Lists {
     }
 
     renderList(list) {
-        console.log(list)
         const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
