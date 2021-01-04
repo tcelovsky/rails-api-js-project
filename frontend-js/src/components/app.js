@@ -1,5 +1,5 @@
 class App {
     constructor() {
-      this.lists = new Lists()
+      this.lists = new List()
     }
 }

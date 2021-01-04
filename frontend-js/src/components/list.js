@@ -1,6 +1,6 @@
 const listsContainer = document.querySelector("#lists-container")
 
-class Lists {
+class List {
     constructor() {
         this.addEventListeners()
         this.adapter = new ListsAdapter()
