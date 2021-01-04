@@ -30,7 +30,13 @@ class Lists {
         const ul = document.createElement("ul")
 
         h3.innerText = list.title
+        list.list_items.forEach(list_item => renderListItem(list_item))
         listsContainer.appendChild(h3)
+    }
+
+    renderListItem(list_item) {
+        const ul
+        const ul = document.createElement("li")
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
