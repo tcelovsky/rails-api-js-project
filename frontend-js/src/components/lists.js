@@ -29,9 +29,9 @@ class Lists {
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
         div.setAttribute("id", "list-container")
-        div.setAttribute("data-id", list.id)
-        h3.setAttribute("data-id", list.id)
-        ul.setAttribute("data-id", list.id)
+        div.setAttribute("data-list-id", list.id)
+        h3.setAttribute("data-list-id", list.id)
+        ul.setAttribute("data-list-id", list.id)
 
         h3.innerText = list.title
         list.list_items.forEach(list_item => this.renderListItem(list_item))
@@ -43,7 +43,7 @@ class Lists {
 
     renderListItem(list_item) {
         const li = document.createElement("li")
-        li.setAttribute("data-id", list_item.id)
+        li.setAttribute("data-list_item-id", list_item.id)
 
         li.innerText = list_item.content
 
