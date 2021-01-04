@@ -8,6 +8,7 @@ class List {
 
     addEventListeners() {
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
+        this.newListItemInput = document.getElementById("new-list-item-input")
     }
 
     loadLists() {
@@ -31,8 +32,8 @@ class List {
         form.setAttribute("id", "new-list-item")
         inputText.setAttribute("type", "text")
         inputText.setAttribute("name", "list-item")
-        inputText.setAttribute("id", "new-list-item")
-        inputText.setAttribute("value", "Type List Item")
+        inputText.setAttribute("id", "new-list-item-input")
+        // inputText.setAttribute("value", "Type List Item")
         inputButton.setAttribute("type", "submit")
         inputButton.setAttribute("value", "Add List Item")
         inputButton.addEventListener("click", this.addListItem)
@@ -60,23 +61,10 @@ class List {
         ul.appendChild(li)        
     }
 
-    addListItem(e) {
-        e.preventDefault() //regular behavior will be prevented, no refreshing of the page
-        const configObj = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({list_id: e.target.dataset.listId})
-        }
-        fetch(LISTS_URL, configObj).then(res => res.json()).then(json => {
-            if (json.message){
-                alert(json.message)
-            } else {
-                this.renderListItem(json).bind(this)
-            }
-        })
+    addListItem() {
+        event.preventDefault() //regular behavior will be prevented, no refreshing of the page
+        const newListItem = this.newListItemInput.value
+        this.adapter.createListItem(newListItem).then(this.renderListItem)
     }
 }
 
