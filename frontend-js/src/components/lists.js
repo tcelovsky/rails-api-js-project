@@ -4,18 +4,17 @@ const listsContainer = document.querySelector("#lists-container")
 class Lists {
     constructor() {
         this.lists = []
-        // this.initBindingsAndEventListeners()
+        this.addEventListeners()
         this.adapter = new ListsAdapter()
-        this.loadLists()
+        // this.loadLists()
     }
 
-    // initBindingsAndEventListeners() {
-    //     this.listsForm = document.getElementById('new-list-form')
-    //     this.listsInput = document.getElementById('new-list-item')
-    //     this.listsNode = document.getElementById('lists-container')
-    //     this.listsForm.addEventListener('submit',this.handleAddList.bind(this))
-    //     this.listsNode.addEventListener('click',this.handleDeleteList.bind(this))
-    // }
+    addEventListeners() {
+        document.addEventListener("DOMContentLoaded", () => this.loadLists())
+        this.newListForm = document.getElementById('new-list-form')
+        // this.newListForm.addEventListener('submit',this.addNewList.bind(this))
+        // this.listsNode.addEventListener('click',this.handleDeleteList.bind(this))
+    }
 
     loadLists() {
         this.adapter.getLists().then(lists => {
@@ -27,12 +26,15 @@ class Lists {
         const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
+        const button = document.createElement("button")
         
         div.setAttribute("id", "list-container")
         div.setAttribute("data-list-id", list.id)
         h3.setAttribute("title-list-id", list.id)
         ul.setAttribute("data-list-id", list.id)
-        
+        button.setAttribute("data-list-id", list.id)
+        button.innerText = "Add List Item"
+
         h3.innerText = list.title
 
         div.appendChild(h3)
@@ -52,5 +54,12 @@ class Lists {
 
         ul.appendChild(li)        
     }
+
+    // addNewList() {
+    //     event.preventDefault()
+    //     const title = this.value
+    //     this.adapter.createList(title)
+    //     .then(res => res.json())
+    //   }
 }
 
