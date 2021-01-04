@@ -28,28 +28,30 @@ class Lists {
         const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
+        
         div.setAttribute("id", "list-container")
         div.setAttribute("data-list-id", list.id)
-        h3.setAttribute("data-list-id", list.id)
+        h3.setAttribute("title-list-id", list.id)
         ul.setAttribute("data-list-id", list.id)
-
+        
         h3.innerText = list.title
-        list.list_items.forEach(list_item => this.renderListItem(list_item))
 
-        h3.appendChild(ul)
         div.appendChild(h3)
+        div.appendChild(ul)
         listsContainer.appendChild(div)
+
+        list.list_items.forEach(list_item => this.renderListItem(list_item))
     }
 
     renderListItem(list_item) {
+        const ul = document.querySelector(`ul[data-list-id="${list_item.list_id}"]`)
+
         const li = document.createElement("li")
         li.setAttribute("data-list_item-id", list_item.id)
 
         li.innerText = list_item.content
 
-        const ul = document.querySelector(`div [data-id="${list_item.list_id}]`)
-        console.log(ul)
-        // ul.appendChild(li)
+        ul.appendChild(li)        
     }
 }
 
