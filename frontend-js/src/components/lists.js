@@ -20,21 +20,30 @@ class Lists {
         const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
-        const button = document.createElement("button")
+        const form = document.createElement("form")
+        const inputText = document.createElement("input")
+        const inputButton = document.createElement("input")
         
         div.setAttribute("id", "list-container")
         div.setAttribute("data-list-id", list.id)
         h3.setAttribute("title-list-id", list.id)
         ul.setAttribute("data-list-id", list.id)
-        button.setAttribute("button-list-id", list.id)
-        button.innerText = "Add List Item"
-        button.addEventListener("click", this.addListItem)
+        form.setAttribute("id", "new-list-item")
+        inputText.setAttribute("type", "text")
+        inputText.setAttribute("name", "list-item")
+        inputText.setAttribute("id", "new-list-item")
+        inputText.setAttribute("value", "Type List Item")
+        inputButton.setAttribute("type", "submit")
+        inputButton.setAttribute("value", "Add List Item")
+        inputButton.addEventListener("click", this.addListItem)
 
         h3.innerText = list.title
 
+        form.appendChild(inputText)
+        form.appendChild(inputButton)
         div.appendChild(h3)
         div.appendChild(ul)
-        div.appendChild(button)
+        div.appendChild(form)
         listsContainer.appendChild(div)
 
         list.list_items.forEach(list_item => this.renderListItem(list_item))
