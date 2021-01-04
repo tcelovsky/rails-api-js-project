@@ -214,7 +214,7 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 <div class="container">
         <div id="new-list-container">
           <form id="new-list-form">
-            <input type="text" name="list-title" id="new-list-title">
+            <input type="text" name="list-title" id="new-list-title" value="New List Title">
             <input type="text" name="list-item" id="new-list-item">
             <input type="submit" value="Add List">
           </form>
