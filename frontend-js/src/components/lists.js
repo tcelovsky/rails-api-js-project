@@ -19,13 +19,12 @@ class Lists {
             lists.forEach(list => this.lists.push(list))
         })
         .then(() => {
-            this.render()
+            this.renderLists()
         })
     }
 
-    render() {
-        const listsContainer = document.getElementById('lists-container')
-        listsContainer.innerHTML = 'my lists here'
+    renderLists() {
+        console.log(this)
     }
 
     //     .then( listsJSON => listsJSON.forEach( list => this.list.push( new List(list) )))
