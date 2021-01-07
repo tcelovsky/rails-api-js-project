@@ -1,6 +1,6 @@
 const listsContainer = document.querySelector("#lists-container")
 
-class List {
+class Lists {
     constructor() {
         this.addEventListeners()
         this.adapter = new ListsAdapter()
@@ -60,10 +60,10 @@ class List {
         ul.appendChild(li)        
     }
 
-    addListItem(e) {
-        e.preventDefault() //regular behavior will be prevented, no refreshing of the page
-        const newListItem = this.newListItemInput.value
-        this.adapter.createListItem(newListItem).then(this.renderListItem)
-    }
+    // addListItem(e) {
+    //     e.preventDefault() //regular behavior will be prevented, no refreshing of the page
+    //     const newListItem = this.newListItemInput.value
+    //     this.adapter.createListItem(newListItem).then(this.renderListItem)
+    // }
 }
 
