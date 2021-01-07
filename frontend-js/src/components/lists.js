@@ -2,11 +2,12 @@ const listsContainer = document.querySelector("#lists-container")
 
 class Lists {
     constructor() {
-        this.addEventListeners()
+        this.lists = []
+        this.addEventListenersAndBindings()
         this.adapter = new ListsAdapter()
     }
 
-    addEventListeners() {
+    addEventListenersAndBindings() {
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
         this.newListItemInput = document.getElementById("new-list-item-input")
     }
