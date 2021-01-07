@@ -7,7 +7,6 @@ class Lists {
 
     addEventListenersAndBindings() {
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
-        this.listsContainer = document.querySelector("#lists-container")
         this.newListItemInput = document.getElementById("new-list-item-input")
     }
 
@@ -23,34 +22,6 @@ class Lists {
 
     renderLists() {
         this.lists.map(list => list.renderList()).join('')
-
-        // const div = document.createElement("div")
-        // const h3 = document.createElement("h3")
-        // const ul = document.createElement("ul")
-        // const form = document.createElement("form")
-        // const inputText = document.createElement("input")
-        // const inputButton = document.createElement("input")
-        
-        // div.setAttribute("id", "list-container")
-        // div.setAttribute("data-list-id", list.id)
-        // h3.setAttribute("title-list-id", list.id)
-        // ul.setAttribute("data-list-id", list.id)
-        // form.setAttribute("id", "new-list-item")
-        // inputText.setAttribute("type", "text")
-        // inputText.setAttribute("name", "list-item")
-        // inputText.setAttribute("id", "new-list-item-input")
-        // inputButton.setAttribute("type", "submit")
-        // inputButton.setAttribute("value", "Add List Item")
-        // inputButton.addEventListener('submit', this.addListItem)
-
-        // h3.innerText = list.title
-
-        // form.appendChild(inputText)
-        // form.appendChild(inputButton)
-        // div.appendChild(h3)
-        // div.appendChild(ul)
-        // div.appendChild(form)
-        // listsContainer.appendChild(div)
 
         // list.list_items.forEach(list_item => this.renderListItem(list_item))
     }
