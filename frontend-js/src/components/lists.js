@@ -6,14 +6,14 @@ class Lists {
     }
 
     addEventListenersAndBindings() {
-        const listsContainer = document.querySelector("#lists-container")
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
+        this.listsContainer = document.querySelector("#lists-container")
         this.newListItemInput = document.getElementById("new-list-item-input")
     }
 
     loadLists() {
         this.adapter.getLists().then(lists => {
-            lists.forEach(list => this.renderList(list))
+            lists.forEach(list => this.lists.push(new List(list)))
         })
     }
 
