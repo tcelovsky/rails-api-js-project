@@ -1,5 +1,3 @@
-const listsContainer = document.querySelector("#lists-container")
-
 class Lists {
     constructor() {
         this.lists = []
@@ -8,6 +6,7 @@ class Lists {
     }
 
     addEventListenersAndBindings() {
+        const listsContainer = document.querySelector("#lists-container")
         document.addEventListener("DOMContentLoaded", () => this.loadLists())
         this.newListItemInput = document.getElementById("new-list-item-input")
     }
