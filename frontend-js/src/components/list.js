@@ -2,6 +2,7 @@ class List {
     constructor(listJSON) {
         this.title = listJSON.title
         this.id = listJSON.id
+        this.listItems = listJSON.list_items
     }
 
     renderList() {

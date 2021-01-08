@@ -22,7 +22,7 @@ class Lists {
 
     renderLists() {
         this.lists.map(list => list.renderList()).join('')
-
+        console.log(this.lists)
         // list.list_items.forEach(list_item => this.renderListItem(list_item))
     }
 
