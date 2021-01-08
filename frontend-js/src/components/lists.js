@@ -18,20 +18,10 @@ class Lists {
         .then(() => {
             this.renderLists()
         })
-        .then(() => {
-            this.renderListItems()
-        })
     }
 
     renderLists() {
-        this.lists.map(list => list.renderList()).join('')
-    }
-
-    renderListItems() {
-        const listItems = []
-        this.lists.forEach(list => {
-            list.listItems.map(listItem => listItems.push(new ListItem(listItem)))
-        })
+        this.lists.map(list => list.renderList())
     }
 
     // addListItem(e) {

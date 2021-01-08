@@ -35,5 +35,18 @@ class List {
         div.appendChild(ul)
         div.appendChild(form)
         listsContainer.appendChild(div)
+
+        this.listItems.forEach(listItem => this.renderListItem.call(listItem))
+    }
+
+    renderListItem() {
+        const ul = document.querySelector(`ul[data-list-id="${this.list_id}"]`)
+
+        const li = document.createElement("li")
+        li.setAttribute("data-list_item-id", this.id)
+
+        li.innerText = this.content
+
+        ul.appendChild(li) 
     }
 }
