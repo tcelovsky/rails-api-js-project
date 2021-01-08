@@ -5,14 +5,14 @@ class ListItem {
         this.listId = listItemJSON.list_id
     }
 
-    // renderListItem() {
-    //     const ul = document.querySelector(`ul[data-list-id="${this.listId}"]`)
+    renderListItem() {
+        const ul = document.querySelector(`ul[data-list-id="${this.listId}"]`)
 
-    //     const li = document.createElement("li")
-    //     li.setAttribute("data-list_item-id", this.id)
+        const li = document.createElement("li")
+        li.setAttribute("data-list_item-id", this.id)
 
-    //     li.innerText = this.content
+        li.innerText = this.content
 
-    //     ul.appendChild(li) 
-    // }
+        ul.appendChild(li) 
+    }
 }

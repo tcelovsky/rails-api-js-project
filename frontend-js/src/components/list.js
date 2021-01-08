@@ -36,7 +36,8 @@ class List {
         div.appendChild(form)
         listsContainer.appendChild(div)
 
-        this.listItems.forEach(listItem => this.renderListItem.call(listItem))
+        // this.listItems.forEach(listItem => this.renderListItem.call(listItem))
+        this.listItems.forEach(listItem => new ListItem(listItem))
     }
 
     renderListItem() {
