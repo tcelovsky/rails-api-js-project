@@ -30,7 +30,7 @@ class Lists {
     renderListItems() {
         const listItems = []
         this.lists.forEach(list => {
-            list.listItems.forEach(listItem => listItems.push(listItem))
+            list.listItems.map(listItem => listItems.push(new ListItem(listItem)))
         })
     }
 
