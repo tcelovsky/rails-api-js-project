@@ -3,6 +3,7 @@ class ListItem {
         this.id = listItemJSON.id
         this.content = listItemJSON.content
         this.listId = listItemJSON.list_id
+        this.renderListItem()
     }
 
     renderListItem() {

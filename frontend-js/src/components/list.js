@@ -37,17 +37,17 @@ class List {
         listsContainer.appendChild(div)
 
         // this.listItems.forEach(listItem => this.renderListItem.call(listItem))
-        this.listItems.forEach(listItem => new ListItem(listItem))
+        this.listItems.forEach(listItem => new ListItem (listItem))
     }
 
-    renderListItem() {
-        const ul = document.querySelector(`ul[data-list-id="${this.list_id}"]`)
+    // renderListItem() {
+    //     const ul = document.querySelector(`ul[data-list-id="${this.list_id}"]`)
 
-        const li = document.createElement("li")
-        li.setAttribute("data-list_item-id", this.id)
+    //     const li = document.createElement("li")
+    //     li.setAttribute("data-list_item-id", this.id)
 
-        li.innerText = this.content
+    //     li.innerText = this.content
 
-        ul.appendChild(li) 
-    }
+    //     ul.appendChild(li) 
+    // }
 }
