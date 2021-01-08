@@ -23,9 +23,11 @@ class List {
         inputText.setAttribute("type", "text")
         inputText.setAttribute("name", "list-item")
         inputText.setAttribute("id", "new-list-item-input")
+        inputButton.setAttribute("button-list-id", this.id)
         inputButton.setAttribute("type", "submit")
         inputButton.setAttribute("value", "Add List Item")
-        // inputButton.addEventListener('submit', this.addListItem)
+        
+        inputButton.addEventListener('submit', this.addListItem)
 
         h3.innerText = this.title
 

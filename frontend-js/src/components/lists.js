@@ -24,10 +24,13 @@ class Lists {
         this.lists.map(list => list.renderList())
     }
 
-    // addListItem(e) {
-    //     e.preventDefault() //regular behavior will be prevented, no refreshing of the page
-    //     const newListItem = this.newListItemInput.value
-    //     this.adapter.createListItem(newListItem).then(this.renderListItem)
-    // }
+    addListItem(e) {
+        e.preventDefault() //regular behavior will be prevented, no refreshing of the page
+        // addNewListItemButton = document.querySelector(`input[button-list-id=${this.id}`)
+        // this.addNewListItemButton.addEventListener('submit', this.addListItem.bind(this))
+        const newListItem = this.newListItemInput.value
+        // this.adapter.createListItem(newListItem).then(this.renderListItem)
+        console.log(newListItem)
+    }
 }
 
