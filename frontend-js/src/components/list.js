@@ -27,7 +27,6 @@ class List {
         inputButton.setAttribute("type", "submit")
         inputButton.setAttribute("value", "Add List Item")
         
-        inputButton.addEventListener('submit', this.addListItem)
 
         h3.innerText = this.title
 
@@ -37,8 +36,15 @@ class List {
         div.appendChild(ul)
         div.appendChild(form)
         listsContainer.appendChild(div)
-
-        // this.listItems.forEach(listItem => this.renderListItem.call(listItem))
+        
         this.listItems.forEach(listItem => new ListItem (listItem))
+        form.addEventListener('submit', this.addListItem.bind(this))
+    }
+
+    addListItem(e) {
+        e.preventDefault()        
+        const newListItem = document.getElementById("new-list-item-input")
+        const newListItemInput = newListItem.value
+            // this.adapter.createListItem(newListItem).then(this.renderListItem)
     }
 }
