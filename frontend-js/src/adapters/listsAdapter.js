@@ -11,15 +11,33 @@ class ListsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
-    // createListItem(newListItem) {
+    // createListItem(newListItemInput) {
+    //     const listItem = {
+    //         content: newListItemInput
+    //     }
     //     const configObj = {
     //         method: "POST",
     //         headers: {
     //           "Content-Type": "application/json",
     //           "Accept": "application/json"
     //         },
-    //         body: JSON.stringify({newListItem})
+    //         body: JSON.stringify({newListItemInput})
     //       }
     //       return fetch(LIST_ITEMS_URL, configObj).then(res => res.json())
     // }
+    createListItem(newListItemInput) {
+        const listItemInput = {
+            content: newListItemInput
+        }
+        return fetch(LIST_ITEMS_URL), {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({content: listItemInput})
+            .then(console.log(listItemInput))
+            // .then(res => res.json())
+        }
+    }
 }

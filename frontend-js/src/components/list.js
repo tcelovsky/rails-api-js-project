@@ -3,6 +3,7 @@ class List {
         this.title = listJSON.title
         this.id = listJSON.id
         this.listItems = listJSON.list_items
+        this.adapter = new ListsAdapter()
     }
 
     renderList() {
@@ -45,6 +46,6 @@ class List {
         e.preventDefault()        
         const newListItem = document.getElementById("new-list-item-input")
         const newListItemInput = newListItem.value
-        this.adapter.createListItem(newListItemInput).then(new ListItem (listItem))
+        this.adapter.createListItem(newListItemInput).then(list => this.lists.push(new ListItem(list)))
     }
 }
