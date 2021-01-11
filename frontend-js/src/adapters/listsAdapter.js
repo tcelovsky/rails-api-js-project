@@ -16,7 +16,7 @@ class ListsAdapter {
             content: newListItem.content,
             listId: newListItem.listId
         }
-        return fetch(LIST_ITEMS_URL), {
+        return fetch(this.baseUrl), {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
