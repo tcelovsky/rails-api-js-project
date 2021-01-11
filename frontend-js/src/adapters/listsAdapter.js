@@ -11,23 +11,10 @@ class ListsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
-    // createListItem(newListItemInput) {
-    //     const listItem = {
-    //         content: newListItemInput
-    //     }
-    //     const configObj = {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //           "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify({newListItemInput})
-    //       }
-    //       return fetch(LIST_ITEMS_URL, configObj).then(res => res.json())
-    // }
-    createListItem(newListItemInput) {
+    createListItem(newListItem) {
         const listItemInput = {
-            content: newListItemInput
+            content: newListItem.content,
+            listId: newListItem.listId
         }
         return fetch(LIST_ITEMS_URL), {
             method: 'POST',
@@ -35,7 +22,7 @@ class ListsAdapter {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({content: listItemInput})
+            body: JSON.stringify({content: listItemInput.content, listId: listItemInput.listId})
             .then(console.log(listItemInput))
             // .then(res => res.json())
         }

@@ -21,9 +21,11 @@ class List {
         h3.setAttribute("title-list-id", this.id)
         ul.setAttribute("data-list-id", this.id)
         form.setAttribute("id", "new-list-item")
+        form.setAttribute("data-list-id", this.id)
         inputText.setAttribute("type", "text")
         inputText.setAttribute("name", "list-item")
         inputText.setAttribute("id", "new-list-item-input")
+        inputText.setAttribute("data-list-id", this.id)
         inputButton.setAttribute("button-list-id", this.id)
         inputButton.setAttribute("type", "submit")
         inputButton.setAttribute("value", "Add List Item")
@@ -44,8 +46,15 @@ class List {
 
     addListItem(e) {
         e.preventDefault()        
-        const newListItem = document.getElementById("new-list-item-input")
-        const newListItemInput = newListItem.value
-        this.adapter.createListItem(newListItemInput).then(list => this.lists.push(new ListItem(list)))
+        const newListItemInput = document.querySelector(`input[data-list-id="${this.id}"]`)
+        const newListItemValue = newListItemInput.value
+        const listId = this.id
+        const newListItem = {
+            listId: listId,
+            content: newListItemValue
+        }
+        this.adapter.createListItem(newListItem)
+        // .then(list => this.lists.push(new ListItem(list)))
+        // console.log(newListItem)
     }
 }
