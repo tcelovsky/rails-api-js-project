@@ -45,6 +45,6 @@ class List {
         e.preventDefault()        
         const newListItem = document.getElementById("new-list-item-input")
         const newListItemInput = newListItem.value
-            // this.adapter.createListItem(newListItem).then(this.renderListItem)
+        this.adapter.createListItem(newListItemInput).then(new ListItem (listItem))
     }
 }
