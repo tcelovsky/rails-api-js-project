@@ -55,5 +55,6 @@ class List {
         }
         this.adapter.createListItem(newListItem)
         .then(json => new ListItem (json))
+        newListItemInput.value = ''
     }
 }
