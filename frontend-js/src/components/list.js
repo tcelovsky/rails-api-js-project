@@ -56,4 +56,17 @@ class List {
         this.adapter.createListItem(newListItem)
         .then(json => new ListItem (json))
     }
+
+    addList(e) {
+        e.preventDefault()
+        const newListInput = document.getElementById("new-list-form")
+        const newListValue = newListItem.value
+        // const listId = this.id
+        const newList = {
+            title: newListValue
+        }
+        this.adapter.createListItem(newList)
+        // .then(json => new ListItem (json))
+        .then(console.log(this))
+    }
 }
