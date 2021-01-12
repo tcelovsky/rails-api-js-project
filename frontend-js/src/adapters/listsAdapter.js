@@ -4,11 +4,25 @@ const LIST_ITEMS_URL = `${BASE_URL}/list_items`
 
 class ListsAdapter {
     constructor() {
-        this.baseUrl = LISTS_URL
+        this.listsUrl = LISTS_URL
+        this.listItemsUrl = LIST_ITEMS_URL
     }
 
     getLists() {
-        return fetch(this.baseUrl).then(res => res.json())
+        return fetch(this.listsUrl).then(res => res.json())
+    }
+
+    createList(newList) {
+        const listInput = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({title: newList.title})
+        }
+        return fetch(this.listsUrl, listInput)
+        .then(res => res.json())
     }
 
     createListItem(newListItem) {
@@ -20,7 +34,7 @@ class ListsAdapter {
             },
             body: JSON.stringify({content: newListItem.content, list_id: newListItem.listId})
         }
-        return fetch(LIST_ITEMS_URL, listItemInput)
+        return fetch(this.listItemsUrl, listItemInput)
         .then(res => res.json())
     }
 }
