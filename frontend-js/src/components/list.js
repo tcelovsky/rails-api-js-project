@@ -54,7 +54,6 @@ class List {
             content: newListItemValue
         }
         this.adapter.createListItem(newListItem)
-        // .then(list => this.lists.push(new ListItem(list)))
-        // console.log(newListItem)
+        .then(json => new ListItem (json))
     }
 }

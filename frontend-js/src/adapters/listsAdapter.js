@@ -13,18 +13,14 @@ class ListsAdapter {
 
     createListItem(newListItem) {
         const listItemInput = {
-            content: newListItem.content,
-            listId: newListItem.listId
-        }
-        return fetch(this.baseUrl), {
-            method: 'POST',
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({content: listItemInput.content, listId: listItemInput.listId})
-            .then(console.log(listItemInput))
-            // .then(res => res.json())
+            body: JSON.stringify({content: newListItem.content, list_id: newListItem.listId})
         }
+        return fetch(LIST_ITEMS_URL, listItemInput)
+        .then(res => res.json())
     }
 }

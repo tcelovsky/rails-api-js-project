@@ -11,13 +11,13 @@ class ListItemsController < ApplicationController
 
     def create
         list = List.find(params[:list_id])
-        list_item = list.list_item.build(list_item_params)
+        list_item = list.list_items.build(list_item_params)
         render json: list_item.save ? list_item : {message: list_item.errors.messages[0]}
     end
 
     def update
         list = List.find(params[:list_id])
-        list_item = list.list_item.update(list_item_params)
+        list_item = list.list_items.update(list_item_params)
         render json: list_item
     end
 
@@ -28,6 +28,6 @@ class ListItemsController < ApplicationController
 
     private
     def list_item_params
-        params.require(:list_item).permit(:content)
+        params.require(:list_item).permit(:content, :list_id)
     end
 end
