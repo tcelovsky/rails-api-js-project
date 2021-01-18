@@ -45,7 +45,7 @@ class List {
     }
 
     addListItem(e) {
-        e.preventDefault()        
+        e.preventDefault()  
         const newListItemInput = document.querySelector(`input[data-list-id="${this.id}"]`)
         const newListItemValue = newListItemInput.value
         const listId = this.id
