@@ -34,10 +34,8 @@ class Lists {
         }
         this.adapter.createList(newList)
         .then(list => this.lists.push(new List(list)))
-        .then(() => {
-            this.renderLists(this.lists[this.lists.length - 1])
-        })
         this.newListInput.value = ''
+        this.renderLists()
     }
 }
 
