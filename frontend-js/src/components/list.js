@@ -4,11 +4,14 @@ class List {
         this.id = listJSON.id
         this.listItems = listJSON.list_items
         this.adapter = new ListsAdapter()
+        this.addBindings()
+    }
+
+    addBindings() {
+        this.listsContainer = document.querySelector("#lists-container")
     }
 
     renderList() {
-        const listsContainer = document.querySelector("#lists-container")
-
         const div = document.createElement("div")
         const h3 = document.createElement("h3")
         const ul = document.createElement("ul")
@@ -38,7 +41,7 @@ class List {
         div.appendChild(h3)
         div.appendChild(ul)
         div.appendChild(form)
-        listsContainer.appendChild(div)
+        this.listsContainer.appendChild(div)
         
         this.listItems.forEach(listItem => new ListItem (listItem))
         form.addEventListener('submit', this.addListItem.bind(this))
