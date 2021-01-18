@@ -32,8 +32,7 @@ class Lists {
         const newList = {
             title: newListValue
         }
-        this.adapter.createList(newList)
-        .then(list => this.lists.push(new List(list)))
+        this.adapter.createList(newList).then(list => this.lists.push(new List(list)))
         this.newListInput.value = ''
         this.renderLists()
     }
