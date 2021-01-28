@@ -208,7 +208,7 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 
 ## Coding the Frontend
 
-1. Add the following within the <body> tax of index.html:
+1. Add the following within the <body> tax of index.html to create basic setup for the webpage:
 
 ```
 <div class="container">
@@ -244,6 +244,7 @@ fetch(`${LISTS_URL}`)
 ```
 const BASE_URL = "http://localhost:3000"
 const LISTS_URL = `${BASE_URL}/lists`
+const LIST_ITEMS_URL = `${BASE_URL}/list_items`
 ```
 
 8. Create listsAdapter class and add the following code to listsAdapter.js file:
@@ -251,16 +252,17 @@ const LISTS_URL = `${BASE_URL}/lists`
 ```
 class ListsAdapter {
     constructor() {
-        this.baseUrl = LISTS_URL
+        this.listsUrl = LISTS_URL
+        this.listItemsUrl = LIST_ITEMS_URL
     }
 
     getLists() {
-        return fetch(this.baseUrl).then(res => res.json())
+        return fetch(this.listsUrl).then(res => res.json())
     }
 }
 ```
 
-9. cd into src/components folder and create the following files: app.js andlists.js by running `mkdir app.js lists.js` command in the terminal.
+9. cd into src/components folder and create the following files: app.js andlists.js by running `mkdir app.js list.js lists.js` command in the terminal.
 10. Create the App class in app.js:
 
 ```
@@ -279,48 +281,87 @@ The idea is that index.js will get loaded and will call `new App()`, which will 
 class Lists {
     constructor() {
         this.lists = []
-        // this.initBindingsAndEventListeners()
+        this.addEventListenersAndBindings()
         this.adapter = new ListsAdapter()
-        this.loadLists()
+    }
+
+    addEventListenersAndBindings() {
+        document.addEventListener("DOMContentLoaded", () => this.loadLists())
+        this.newListInput = document.getElementById("new-list-title")
+        this.newListForm = document.getElementById("new-list-form")
+        this.newListForm.addEventListener('submit', this.addList.bind(this))
     }
 
     loadLists() {
         this.adapter.getLists().then(lists => {
-            lists.forEach(list => this.renderList(list))
+            lists.forEach(list => this.lists.push(new List(list))
+            )
+        })
+        .then(() => {
+            this.renderLists()
         })
     }
 
-    renderList(list) {
-        console.log(list)
-        const div = document.createElement("div")
-        const h3 = document.createElement("h3")
-        const ul = document.createElement("ul")
-
-        div.setAttribute("id", "list-container")
-        div.setAttribute("data-list-id", list.id)
-        h3.setAttribute("title-list-id", list.id)
-        ul.setAttribute("data-list-id", list.id)
-
-        h3.innerText = list.title
-
-        div.appendChild(h3)
-        div.appendChild(ul)
-        listsContainer.appendChild(div)
-
-        list.list_items.forEach(list_item => this.renderListItem(list_item))
-    }
-
-    renderListItem(list_item) {
-        const ul = document.querySelector(`ul[data-list-id="${list_item.list_id}"]`)
-
-        const li = document.createElement("li")
-        li.setAttribute("data-list_item-id", list_item.id)
-
-        li.innerText = list_item.content
-
-        ul.appendChild(li)
+    renderLists() {
+        this.lists.map(list => list.renderList())
     }
 }
 ```
 
 This Lists Class will communicate with the Lists Adapter and will render the lists on the page.
+
+12. Navigate to list.js and create a new List class:
+
+```
+class List {
+    constructor(listJSON) {
+        this.title = listJSON.title
+        this.id = listJSON.id
+        this.listItems = listJSON.list_items
+        this.adapter = new ListsAdapter()
+        this.addBindings()
+    }
+
+    addBindings() {
+        this.listsContainer = document.querySelector("#lists-container")
+    }
+
+    renderList() {
+        const div = document.createElement("div")
+        const h3 = document.createElement("h3")
+        const ul = document.createElement("ul")
+        const form = document.createElement("form")
+        const inputText = document.createElement("input")
+        const inputButton = document.createElement("input")
+
+        div.setAttribute("id", "list-container")
+        div.setAttribute("data-list-id", this.id)
+        h3.setAttribute("title-list-id", this.id)
+        ul.setAttribute("data-list-id", this.id)
+        form.setAttribute("id", "new-list-item")
+        form.setAttribute("data-list-id", this.id)
+        inputText.setAttribute("type", "text")
+        inputText.setAttribute("name", "list-item")
+        inputText.setAttribute("id", "new-list-item-input")
+        inputText.setAttribute("data-list-id", this.id)
+        inputButton.setAttribute("button-list-id", this.id)
+        inputButton.setAttribute("type", "submit")
+        inputButton.setAttribute("value", "Add List Item")
+
+
+        h3.innerText = this.title
+
+        form.appendChild(inputText)
+        form.appendChild(inputButton)
+        div.appendChild(h3)
+        div.appendChild(ul)
+        div.appendChild(form)
+        this.listsContainer.appendChild(div)
+
+        this.listItems.forEach(listItem => new ListItem (listItem))
+        form.addEventListener('submit', this.addListItem.bind(this))
+    }
+}
+```
+
+The point of the List class is to house all the HTML and DOM manipulation logic for the app.
