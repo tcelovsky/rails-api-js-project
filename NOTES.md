@@ -364,4 +364,94 @@ class List {
 }
 ```
 
-The point of the List class is to house all the HTML and DOM manipulation logic for the app.
+The point of the List class is to house all the HTML and DOM manipulation logic related to lists.
+
+13. Create a new file "listItem.js" in the "components" folder and add the following:
+
+```
+class ListItem {
+    constructor(listItemJSON) {
+        this.id = listItemJSON.id
+        this.content = listItemJSON.content
+        this.listId = listItemJSON.list_id
+        this.renderListItem()
+    }
+
+    renderListItem() {
+        const ul = document.querySelector(`ul[data-list-id="${this.listId}"]`)
+
+        const li = document.createElement("li")
+        li.setAttribute("data-list_item-id", this.id)
+
+        li.innerText = this.content
+
+        ul.appendChild(li)
+    }
+}
+```
+
+The point of the ListItems class is to house all the HTML and DOM manipulation logic related to list items.
+
+14. Next, focus on add list and add list item functionality of the app. Navigate to lists.js and add the following to Lists class:
+
+```
+addList(e) {
+        e.preventDefault()
+        const newListValue = this.newListInput.value
+        const newList = {
+            title: newListValue
+        }
+        this.adapter.createList(newList)
+        .then(list => this.lists.push(new List(list)))
+        .then(this.renderLists())
+        this.newListInput.value = ''
+    }
+```
+
+Navigate to listsAdapter.js and add the following to ListsAdapter class:
+
+```
+createList(newList) {
+        const listInput = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({title: newList.title})
+        }
+        return fetch(this.listsUrl, listInput)
+        .then(res => res.json())
+    }
+
+    createListItem(newListItem) {
+        const listItemInput = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({content: newListItem.content, list_id: newListItem.listId})
+        }
+        return fetch(this.listItemsUrl, listItemInput)
+        .then(res => res.json())
+    }
+```
+
+Navigate to list.js and add the following to List class:
+
+```
+addListItem(e) {
+        e.preventDefault()
+        const newListItemInput = document.querySelector(`input[data-list-id="${this.id}"]`)
+        const newListItemValue = newListItemInput.value
+        const listId = this.id
+        const newListItem = {
+            listId: listId,
+            content: newListItemValue
+        }
+        this.adapter.createListItem(newListItem)
+        .then(json => new ListItem (json))
+        newListItemInput.value = ''
+    }
+```
