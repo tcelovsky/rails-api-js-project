@@ -3,6 +3,7 @@ class ListItem {
         this.id = listItemJSON.id
         this.content = listItemJSON.content
         this.listId = listItemJSON.list_id
+        this.adapter = new ListsAdapter()
         this.renderListItem()
     }
 
@@ -10,7 +11,7 @@ class ListItem {
         const ul = document.querySelector(`ul[data-list-id="${this.listId}"]`)
 
         const li = document.createElement("li")
-        li.setAttribute("data-list_item-id", this.id)
+        li.setAttribute("data-list_item_id", this.id)
 
         li.innerText = this.content
         li.addEventListener('click', this.editListItem.bind(this))
@@ -22,6 +23,8 @@ class ListItem {
         const li = e.target
         li.contentEditable = true
         li.focus
-        console.log(e.target)
+        const newValue = li.innerHTML
+        const id = li.dataset.list_item_id
+        this.adapter.updateListItem(newValue, id)
     }
 }
