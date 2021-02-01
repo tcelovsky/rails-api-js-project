@@ -19,6 +19,9 @@ class ListItem {
     }
 
     editListItem(e) {
+        const li = e.target
+        li.contentEditable = true
+        li.focus
         console.log(e.target)
     }
 }
