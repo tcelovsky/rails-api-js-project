@@ -13,7 +13,12 @@ class ListItem {
         li.setAttribute("data-list_item-id", this.id)
 
         li.innerText = this.content
+        li.addEventListener('click', this.editListItem.bind(this))
 
         ul.appendChild(li) 
+    }
+
+    editListItem(e) {
+        console.log(e.target)
     }
 }

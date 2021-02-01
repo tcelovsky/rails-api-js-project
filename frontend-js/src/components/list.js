@@ -21,7 +21,6 @@ class List {
         
         div.setAttribute("id", "list-container")
         div.setAttribute("data-list-id", this.id)
-        div.addEventListener('click', this.editListItem.bind(this))
         h3.setAttribute("title-list-id", this.id)
         ul.setAttribute("data-list-id", this.id)
         form.setAttribute("id", "new-list-item")
@@ -60,11 +59,5 @@ class List {
         this.adapter.createListItem(newListItem)
         .then(json => new ListItem (json))
         newListItemInput.value = ''
-    }
-
-    editListItem(e) {
-        const li = e.target
-        li.contentEditable = true
-        li.focus
     }
 }
