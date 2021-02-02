@@ -34,6 +34,7 @@ class ListItem {
         li.contentEditable = false
         const newValue = li.innerHTML
         const id = li.dataset.list_item_id
+        console.log(id)
         document.onclick = this.adapter.updateListItem(newValue, id)
     }
 }

@@ -45,7 +45,7 @@ class ListsAdapter {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({content: value, list_id: id})
+            body: JSON.stringify({content: value, id: id})
         }
         return fetch(`${this.listItemsUrl}/${id}`, listItemInput)
         .then(res => res.json())
