@@ -37,4 +37,17 @@ class ListsAdapter {
         return fetch(this.listItemsUrl, listItemInput)
         .then(res => res.json())
     }
+
+    updateListItem(value, id) {
+        const listItemInput = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({content: value, list_id: id})
+        }
+        return fetch(`${this.listItemsUrl}/${id}`)
+        .then(res => res.json())
+    }
 }

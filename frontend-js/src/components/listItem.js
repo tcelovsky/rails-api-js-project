@@ -20,11 +20,13 @@ class ListItem {
     }
 
     editListItem(e) {
+        e.stopImmediatePropagation()
         const li = e.target
+        li.removeEventListener('click', this.editListItem.bind(this))
         li.contentEditable = true
         li.focus
         const newValue = li.innerHTML
         const id = li.dataset.list_item_id
-        this.adapter.updateListItem(newValue, id)
+        document.onclick = this.adapter.updateListItem(newValue, id)
     }
 }
