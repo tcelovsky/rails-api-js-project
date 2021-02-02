@@ -47,7 +47,7 @@ class ListsAdapter {
             },
             body: JSON.stringify({content: value, list_id: id})
         }
-        return fetch(`${this.listItemsUrl}/${id}`)
+        return fetch(`${this.listItemsUrl}/${id}`, listItemInput)
         .then(res => res.json())
     }
 }

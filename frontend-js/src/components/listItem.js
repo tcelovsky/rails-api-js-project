@@ -14,17 +14,24 @@ class ListItem {
         li.setAttribute("data-list_item_id", this.id)
 
         li.innerText = this.content
-        li.addEventListener('click', this.editListItem.bind(this))
+        li.addEventListener('click', this.toggleListItem.bind(this))
 
         ul.appendChild(li) 
     }
 
-    editListItem(e) {
+    toggleListItem(e) {
         e.stopImmediatePropagation()
         const li = e.target
         li.removeEventListener('click', this.editListItem.bind(this))
         li.contentEditable = true
         li.focus
+        this.body = document.querySelector('body')
+        this.body.addEventListener('blur', this.editListItem.bind(this), true)
+    }
+
+    editListItem(e) {
+        const li = e.target
+        li.contentEditable = false
         const newValue = li.innerHTML
         const id = li.dataset.list_item_id
         document.onclick = this.adapter.updateListItem(newValue, id)
