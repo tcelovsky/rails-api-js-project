@@ -12,6 +12,7 @@ class ListItem {
 
         const li = document.createElement("li")
         li.setAttribute("data-list_item_id", this.id)
+        li.setAttribute("data-list_id", this.listId)
 
         li.innerText = this.content
         li.addEventListener('click', this.toggleListItem.bind(this))
@@ -34,7 +35,7 @@ class ListItem {
         li.contentEditable = false
         const newValue = li.innerHTML
         const id = li.dataset.list_item_id
-        console.log(id)
-        document.onclick = this.adapter.updateListItem(newValue, id)
+        const listId = li.dataset.list_id
+        document.onclick = this.adapter.updateListItem(newValue, id, listId)
     }
 }
