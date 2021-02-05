@@ -36,6 +36,6 @@ class ListItem {
         const newValue = li.innerHTML
         const id = li.dataset.list_item_id
         const listId = li.dataset.list_id
-        document.onclick = this.adapter.updateListItem(newValue, id, listId)
+        document.onclick = this.adapter.updateListItem(newValue, id)
     }
 }
