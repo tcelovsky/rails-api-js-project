@@ -23,9 +23,9 @@ class ListItem {
     toggleListItem(e) {
         e.stopImmediatePropagation()
         const li = e.target
-        li.removeEventListener('click', this.editListItem.bind(this))
         li.contentEditable = true
         li.focus
+        li.removeEventListener('click', this.toggleListItem.bind(this))
         this.body = document.querySelector('body')
         this.body.addEventListener('blur', this.editListItem.bind(this), true)
     }
@@ -33,9 +33,12 @@ class ListItem {
     editListItem(e) {
         const li = e.target
         li.contentEditable = false
-        const newValue = li.innerHTML
+        const newListItemValue = li.innerHTML
         const id = li.dataset.list_item_id
-        const listId = li.dataset.list_id
-        document.onclick = this.adapter.updateListItem(newValue, id)
+        const updatedListItem = {
+            id: id,
+            content: newListItemValue
+        }
+        document.onclick = this.adapter.updateListItem(updatedListItem)
     }
 }

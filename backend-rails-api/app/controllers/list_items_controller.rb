@@ -16,7 +16,7 @@ class ListItemsController < ApplicationController
     end
 
     def update
-        list = ListItem.find(params[:id])
+        list_item = ListItem.find(params[:id])
         list_item = ListItem.update(list_item_params)
         render json: list_item
     end
