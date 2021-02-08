@@ -32,12 +32,19 @@ class List {
         inputButton.setAttribute("button-list-id", this.id)
         inputButton.setAttribute("type", "submit")
         inputButton.setAttribute("value", "Add Item")
+
+        const deleteButton = document.createElement("input")
+        deleteButton.setAttribute("button-list-id", this.id)
+        deleteButton.setAttribute("type", "submit")
+        deleteButton.setAttribute("value", "Delete List")
+        // deleteButton.addEventListener('click', this.deleteList.bind(this))
         
 
         h3.innerText = this.title
 
         form.appendChild(inputText)
         form.appendChild(inputButton)
+        h3.appendChild(deleteButton)
         div.appendChild(h3)
         div.appendChild(ul)
         div.appendChild(form)
