@@ -31,7 +31,7 @@ class List {
         inputText.setAttribute("data-list-id", this.id)
         inputButton.setAttribute("button-list-id", this.id)
         inputButton.setAttribute("type", "submit")
-        inputButton.setAttribute("value", "Add List Item")
+        inputButton.setAttribute("value", "Add Item")
         
 
         h3.innerText = this.title

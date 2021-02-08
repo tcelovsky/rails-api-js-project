@@ -13,41 +13,56 @@ class ListsAdapter {
     }
 
     createList(newList) {
-        const listInput = {
+        const formData = {
+            title: newList.title
+        }
+        const configObj = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({title: newList.title})
+            body: JSON.stringify(formData)
         }
-        return fetch(this.listsUrl, listInput)
+        return fetch(this.listsUrl, configObj)
         .then(res => res.json())
     }
 
     createListItem(newListItem) {
-        const listItemInput = {
+        const formData = {
+            content: newListItem.content, 
+            list_id: newListItem.listId
+        }
+        const configObj = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({content: newListItem.content, list_id: newListItem.listId})
+            body: JSON.stringify(formData)
         }
-        return fetch(this.listItemsUrl, listItemInput)
+        return fetch(this.listItemsUrl, configObj)
         .then(res => res.json())
     }
 
-    updateListItem(updatedListItem) {
-        const listItemInput = {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({content: updatedListItem.content, id: updatedListItem.id})
-        }
-        return fetch(`${this.listItemsUrl}/${updatedListItem.id}`, listItemInput)
-        .then(res => res.json())
-    }
+    // updateListItem(updatedListItem) {
+    //     const formData = {
+    //         content: updatedListItem.content, 
+    //         id: updatedListItem.id
+    //     }
+    //     const configObj = {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify(formData)
+    //     }
+    //     return fetch(`${this.listItemsUrl}/${updatedListItem.id}`, configObj)
+    //     .then(res => res.json())
+    //     .catch(function(error) {    
+    //         alert("Issue with Fetch");    
+    //         console.log(error.message);  
+    //     });
+    // }
 }
