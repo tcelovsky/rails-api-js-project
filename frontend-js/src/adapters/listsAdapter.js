@@ -59,4 +59,19 @@ class ListsAdapter {
         }
         return fetch(`${this.listItemsUrl}/${id}`, configObj)
     }
+
+    deleteList(id) {
+        const formData = {
+            id: id
+        }
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(`${this.listsUrl}/${id}`, configObj)
+    }
 }
