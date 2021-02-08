@@ -16,7 +16,7 @@ class ListItem {
         li.innerText = this.content
 
         const deleteButton = document.createElement("input")
-        deleteButton.setAttribute("button-list-id", this.id)
+        deleteButton.setAttribute("button-list-item-id", this.id)
         deleteButton.setAttribute("type", "submit")
         deleteButton.setAttribute("value", "Delete List Item")
         deleteButton.addEventListener('click', this.deleteListItem.bind(this))
@@ -25,7 +25,11 @@ class ListItem {
         ul.appendChild(li) 
     }
 
-    deleteListItem() {
-        console.log('delete button')
+    deleteListItem(e) {
+        e.preventDefault()
+        // const listItem = document.querySelector(`input[button-list-item-id="${this.id}"]`)
+        const id = this.id
+        this.adapter.deleteListItem(id)
+        .then(console.log('item deleted'))
     }
 }
