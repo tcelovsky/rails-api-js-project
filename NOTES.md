@@ -374,6 +374,7 @@ class ListItem {
         this.id = listItemJSON.id
         this.content = listItemJSON.content
         this.listId = listItemJSON.list_id
+        this.adapter = new ListsAdapter()
         this.renderListItem()
     }
 
@@ -381,10 +382,16 @@ class ListItem {
         const ul = document.querySelector(`ul[data-list-id="${this.listId}"]`)
 
         const li = document.createElement("li")
-        li.setAttribute("data-list_item-id", this.id)
-
+        li.setAttribute("data-list_item_id", this.id)
+        li.setAttribute("data-list_id", this.listId)
         li.innerText = this.content
 
+        const deleteButton = document.createElement("input")
+        deleteButton.setAttribute("button-list-item-id", this.id)
+        deleteButton.setAttribute("type", "submit")
+        deleteButton.setAttribute("value", "Delete List Item")
+
+        li.appendChild(deleteButton)
         ul.appendChild(li)
     }
 }
@@ -408,36 +415,6 @@ addList(e) {
     }
 ```
 
-Navigate to listsAdapter.js and add the following to ListsAdapter class:
-
-```
-createList(newList) {
-        const listInput = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({title: newList.title})
-        }
-        return fetch(this.listsUrl, listInput)
-        .then(res => res.json())
-    }
-
-    createListItem(newListItem) {
-        const listItemInput = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({content: newListItem.content, list_id: newListItem.listId})
-        }
-        return fetch(this.listItemsUrl, listItemInput)
-        .then(res => res.json())
-    }
-```
-
 Navigate to list.js and add the following to List class:
 
 ```
@@ -455,3 +432,42 @@ addListItem(e) {
         newListItemInput.value = ''
     }
 ```
+
+Navigate to listsAdapter.js and add the following to ListsAdapter class:
+
+```
+createList(newList) {
+        const formData = {
+            title: newList.title
+        }
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(this.listsUrl, configObj)
+        .then(res => res.json())
+    }
+
+    createListItem(newListItem) {
+        const formData = {
+            content: newListItem.content,
+            list_id: newListItem.listId
+        }
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(this.listItemsUrl, configObj)
+        .then(res => res.json())
+    }
+```
+
+15. Next, focus on add list and add list item functionality of the app. Navigate to lists.js and add the following to Lists class:
