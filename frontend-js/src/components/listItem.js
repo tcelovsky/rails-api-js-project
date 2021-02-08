@@ -30,6 +30,6 @@ class ListItem {
         // const listItem = document.querySelector(`input[button-list-item-id="${this.id}"]`)
         const id = this.id
         this.adapter.deleteListItem(id)
-        .then(console.log('item deleted'))
+        .then(e.target.parentElement.remove())
     }
 }
