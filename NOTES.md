@@ -470,4 +470,19 @@ createList(newList) {
     }
 ```
 
-15. Next, focus on add list and add list item functionality of the app. Navigate to lists.js and add the following to Lists class:
+15. Next, focus on delete list and delete list item functionality of the app. Navigate to listItem.js and add the following even listener to renderListItem() method:
+
+```
+deleteButton.addEventListener('click', this.deleteListItem.bind(this))
+```
+
+Add the following to ListItem calss within listItem.js:
+
+```
+deleteListItem(e) {
+        e.preventDefault()
+        const id = this.id
+        this.adapter.deleteListItem(id)
+        .then(e.target.parentElement.remove())
+    }
+```
