@@ -346,13 +346,18 @@ class List {
         inputText.setAttribute("data-list-id", this.id)
         inputButton.setAttribute("button-list-id", this.id)
         inputButton.setAttribute("type", "submit")
-        inputButton.setAttribute("value", "Add List Item")
+        inputButton.setAttribute("value", "Add Item")
 
+        const deleteButton = document.createElement("input")
+        deleteButton.setAttribute("button-list-id", this.id)
+        deleteButton.setAttribute("type", "submit")
+        deleteButton.setAttribute("value", "Delete List")
 
         h3.innerText = this.title
 
         form.appendChild(inputText)
         form.appendChild(inputButton)
+        h3.appendChild(deleteButton)
         div.appendChild(h3)
         div.appendChild(ul)
         div.appendChild(form)
@@ -470,7 +475,7 @@ createList(newList) {
     }
 ```
 
-15. Next, focus on delete list and delete list item functionality of the app. Navigate to listItem.js and add the following even listener to renderListItem() method:
+15. Next, focus on delete list and delete list item functionality of the app. Navigate to listItem.js and add the following event listener to renderListItem() method:
 
 ```
 deleteButton.addEventListener('click', this.deleteListItem.bind(this))
@@ -485,4 +490,10 @@ deleteListItem(e) {
         this.adapter.deleteListItem(id)
         .then(e.target.parentElement.remove())
     }
+```
+
+Navigate to list.js and add the following event listener to renderList() method:
+
+```
+deleteButton.addEventListener('click', this.deleteList.bind(this))
 ```
