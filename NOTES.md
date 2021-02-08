@@ -481,7 +481,7 @@ createList(newList) {
 deleteButton.addEventListener('click', this.deleteListItem.bind(this))
 ```
 
-Add the following to ListItem calss within listItem.js:
+Add the following to ListItem class within listItem.js:
 
 ```
 deleteListItem(e) {
@@ -496,4 +496,49 @@ Navigate to list.js and add the following event listener to renderList() method:
 
 ```
 deleteButton.addEventListener('click', this.deleteList.bind(this))
+```
+
+Add the following to List class within list.js:
+
+```
+deleteList(e) {
+        e.preventDefault()
+        const id = this.id
+        this.adapter.deleteList(id)
+        .then(e.target.parentElement.parentElement.remove())
+    }
+```
+
+Navigate to listsAdapter.js and add the following to ListsAdapter class:
+
+```
+deleteListItem(id) {
+        const formData = {
+            id: id
+        }
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(`${this.listItemsUrl}/${id}`, configObj)
+    }
+
+    deleteList(id) {
+        const formData = {
+            id: id
+        }
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(`${this.listsUrl}/${id}`, configObj)
+    }
 ```
