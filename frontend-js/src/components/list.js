@@ -67,4 +67,8 @@ class List {
         .then(json => new ListItem (json))
         newListItemInput.value = ''
     }
+
+    deleteList(e) {
+        console.log("delete list")
+    }
 }
