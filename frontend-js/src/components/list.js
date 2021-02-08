@@ -70,7 +70,6 @@ class List {
 
     deleteList(e) {
         e.preventDefault()
-        console.log(this.id)
         const id = this.id
         this.adapter.deleteList(id)
         console.log("list deleted")
