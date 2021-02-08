@@ -72,7 +72,8 @@ class List {
         e.preventDefault()
         console.log(this.id)
         const id = this.id
-        // this.adapter.deleteList(id)
+        this.adapter.deleteList(id)
+        console.log("list deleted")
         // .then(e.target.parentElement.remove())
     }
 }
