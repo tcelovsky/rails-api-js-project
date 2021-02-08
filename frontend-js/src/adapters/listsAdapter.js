@@ -45,24 +45,18 @@ class ListsAdapter {
         .then(res => res.json())
     }
 
-    // updateListItem(updatedListItem) {
-    //     const formData = {
-    //         content: updatedListItem.content, 
-    //         id: updatedListItem.id
-    //     }
-    //     const configObj = {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(formData)
-    //     }
-    //     return fetch(`${this.listItemsUrl}/${updatedListItem.id}`, configObj)
-    //     .then(res => res.json())
-    //     .catch(function(error) {    
-    //         alert("Issue with Fetch");    
-    //         console.log(error.message);  
-    //     });
-    // }
+    deleteListItem(id) {
+        const formData = {
+            id: id
+        }
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        return fetch(`${this.listItemsUrl}/${id}`, configObj)
+    }
 }
