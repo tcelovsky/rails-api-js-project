@@ -27,7 +27,6 @@ class ListItem {
 
     deleteListItem(e) {
         e.preventDefault()
-        // const listItem = document.querySelector(`input[button-list-item-id="${this.id}"]`)
         const id = this.id
         this.adapter.deleteListItem(id)
         .then(e.target.parentElement.remove())
