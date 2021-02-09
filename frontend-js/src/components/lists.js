@@ -29,8 +29,13 @@ class Lists {
             .then(list => new List (list))
             this.newListInput.value = '' 
         } else {
+            this.errorMessage()
             this.newListInput.value = ''
         }
+    }
+
+    errorMessage() {
+        alert("Please enter list title.")
     }
 }
 
