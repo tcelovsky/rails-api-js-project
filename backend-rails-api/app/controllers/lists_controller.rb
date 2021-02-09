@@ -12,7 +12,7 @@ class ListsController < ApplicationController
 
     def create
         list = List.create(list_params)
-        render json: list
+        render json: list.save ? list : {message: list.errors.messages[0]}
     end
 
     def update
