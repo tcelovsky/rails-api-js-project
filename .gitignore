@@ -79,3 +79,6 @@ backend-rails-api/storage/*
 
 # Ignore master key for decrypting credentials and more.
 backend-rails-api/config/master.key
+
+# Ignore NOTES.md file.
+NOTES.md
