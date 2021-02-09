@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 
@@ -18,11 +18,57 @@ main {
   padding-bottom: 30px;
 }
 
-div#list-container {
+div.list-container {
   background-color: #eeeeee;
   height: 250px;
-  width: 300px;
+  width: 250px;
   box-shadow: 10px 10px grey;
   padding: 10px;
   border-radius: 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1em;
+  color: black;
+  font-family: Helvetica;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 10px;
+  text-align: left;
+}
+
+li {
+  font-family: Helvetica;
+  font-size: 0.85em;
+  list-style: inside;
+}
+
+input[type="submit" i] {
+  font-size: 0.75em;
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 1em;
+}
+
+input[type="text" i] {
+  border-radius: 10px;
+}
+
+input.delete-list-button {
+  font-size: 0.75em;
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 1em;
 }
