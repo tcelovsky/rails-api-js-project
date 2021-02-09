@@ -66,7 +66,14 @@ class List {
                 content: newListItemValue
             }
             this.adapter.createListItem(newListItem)
-            .then(json => new ListItem (json))
+            // .then(json => new ListItem (json))
+            .then(json => {
+                if (json.message){
+                    alert(json.message)
+                } else {
+                    new ListItem (json)
+                }
+            })
             newListItemInput.value = ''
          } else {
             newListItemInput.value = ''
