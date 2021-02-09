@@ -81,4 +81,4 @@ backend-rails-api/storage/*
 backend-rails-api/config/master.key
 
 # Ignore NOTES.md file.
-NOTES.md
+notes.md
