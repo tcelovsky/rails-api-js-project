@@ -17,3 +17,12 @@ main {
   padding-top: 10px;
   padding-bottom: 30px;
 }
+
+div#list-container {
+  background-color: #eeeeee;
+  height: 250px;
+  width: 300px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+}
