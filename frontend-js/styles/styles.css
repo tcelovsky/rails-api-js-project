@@ -15,11 +15,11 @@ header {
 
 div.lists-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   column-gap: 10px;
   row-gap: 15px;
-  place-content: stretch;
+  place-content: start;
   grid-auto-flow: row;
 }
 
@@ -106,6 +106,6 @@ input.delete-list-button {
 
 @media only screen and (min-width: 850px) {
   div.lists-container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
