@@ -20,7 +20,7 @@ class List {
         const inputText = document.createElement("input")
         const inputButton = document.createElement("input")
         
-        div.setAttribute("id", "list-container")
+        div.setAttribute("class", "list-container")
         div.setAttribute("data-list-id", this.id)
         h3.setAttribute("title-list-id", this.id)
         ul.setAttribute("data-list-id", this.id)
