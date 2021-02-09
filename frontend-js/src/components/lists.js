@@ -1,6 +1,5 @@
 class Lists {
     constructor() {
-        this.lists = []
         this.addEventListenersAndBindings()
         this.adapter = new ListsAdapter()
     }
@@ -13,17 +12,10 @@ class Lists {
     }
 
     loadLists() {
-        this.adapter.getLists().then(lists => {
-            lists.forEach(list => this.lists.push(new List(list))
-            )
+        this.adapter.getLists()
+        .then(lists => {
+            lists.forEach(list => new List (list))
         })
-        .then(() => {
-            this.renderLists()
-        })
-    }
-
-    renderLists() {
-        this.lists.map(list => list.renderList())
     }
 
     addList(e) {
@@ -34,7 +26,6 @@ class Lists {
         }
         this.adapter.createList(newList)
         .then(list => this.lists.push(new List(list)))
-        .then(this.renderLists())
         this.newListInput.value = ''
     }
 }

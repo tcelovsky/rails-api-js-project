@@ -5,6 +5,7 @@ class List {
         this.listItems = listJSON.list_items
         this.adapter = new ListsAdapter()
         this.addBindings()
+        this.renderList()
     }
 
     addBindings() {
