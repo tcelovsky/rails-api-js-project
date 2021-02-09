@@ -20,13 +20,17 @@ class Lists {
 
     addList(e) {
         e.preventDefault()
-        const newListValue = this.newListInput.value
-        const newList = {
-            title: newListValue
+        if (this.newListInput.value) {
+           const newListValue = this.newListInput.value
+            const newList = {
+                title: newListValue
+            }
+            this.adapter.createList(newList)
+            .then(list => new List (list))
+            this.newListInput.value = '' 
+        } else {
+            this.newListInput.value = ''
         }
-        this.adapter.createList(newList)
-        .then(list => new List (list))
-        this.newListInput.value = ''
     }
 }
 
