@@ -4,18 +4,28 @@ body {
 }
 
 header {
-  background-color: lightgrey;
+  background-color: #eeeeee;
   margin: 0 auto;
   height: 50px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
 }
 
-main {
+div.lists-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-gap: 20px;
-  padding-top: 10px;
-  padding-bottom: 30px;
+  column-gap: 10px;
+  row-gap: 15px;
+  place-content: stretch;
+  grid-auto-flow: row;
+}
+
+div.new-list-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 div.list-container {
@@ -26,6 +36,15 @@ div.list-container {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
+  margin: 1em 1em 0em 0em;
+  justify-self: start;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: black;
+  font-family: Helvetica;
+  margin: 0.65em 0.75em;
 }
 
 h3 {
@@ -52,16 +71,21 @@ li {
 }
 
 input[type="submit" i] {
-  font-size: 0.75em;
+  font-size: 0.65em;
   color: white;
   background-color: grey;
   border-radius: 10px;
   text-align: center;
   margin-left: 1em;
+  padding: 0px 6px;
 }
 
 input[type="text" i] {
   border-radius: 10px;
+}
+
+input.delete-list-item-button {
+  float: right;
 }
 
 input.delete-list-button {
@@ -71,4 +95,17 @@ input.delete-list-button {
   border-radius: 10px;
   text-align: center;
   margin-left: 1em;
+  float: right;
 }
+
+/* @media only screen and (min-width: 500px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+} */

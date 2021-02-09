@@ -9,7 +9,7 @@ class List {
     }
 
     addBindings() {
-        this.listsContainer = document.querySelector("#lists-container")
+        this.listsContainer = document.querySelector(".lists-container")
     }
 
     renderList() {

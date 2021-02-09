@@ -17,6 +17,7 @@ class ListItem {
 
         const deleteButton = document.createElement("input")
         deleteButton.setAttribute("button-list-item-id", this.id)
+        deleteButton.setAttribute("class", "delete-list-item-button")
         deleteButton.setAttribute("type", "submit")
         deleteButton.setAttribute("value", "Delete List Item")
         deleteButton.addEventListener('click', this.deleteListItem.bind(this))
