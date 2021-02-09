@@ -4,7 +4,7 @@ The purpose of this file is to keep continuous notes while working on the projec
 
 ## Description of the Project
 
-This project will be built using Rails API for the backend and JavaScript, HTML and CSS for the frontend. Styles will be provided by CSS. This project will be a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user will be able to add, update and delete the items on each list. The user will also be able to create and delete the lists.
+This project will be built using Rails API for the backend and JavaScript, HTML and CSS for the frontend. Styles will be provided by CSS. This project will be a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user will be able to add and delete the items on each list. The user will also be able to create and delete the lists.
 
 ## Creating GitHub Repository
 
@@ -33,9 +33,9 @@ _For this project, I entered the following in my terminal: `rails new backend-ra
 1. cd into the new Rails repository just created.
 2. In your terminal enter `rm -r .git`
 3. cd back to the top folder of your project
-4. Ensure that the itmes listes in the .gitignore file at the root of your project are prefaced with the name of your backend repository. For me this meant adding 'backend-rails-api' at the front of each item listed in the .gitignore file.
+4. Ensure that the items listes in the .gitignore file at the root of your project are prefaced with the name of your backend repository. For me this meant adding 'backend-rails-api' at the front of each item listed in the .gitignore file.
 
-Continuiong with the backend setup:
+Continuing with the backend setup:
 
 2. cd into the new folder just created.
 3. Navigate to the gemfile and uncomment gem 'rack-cors'. This will allow [Cross Origin Resource Sharing (CORS)] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in the API. CORS is a security feature that prevents API calls from unknown origins.
@@ -83,6 +83,27 @@ This will create two migrations, two models, and two empty controllers.
 3. Run `rails db:create` to create the database.
 4. Run `rails db:migrate` to migrate the database.
 5. Run `rails db:seed` to seed the database.
+
+**Note**
+You may wish to create a custom Rake task to expedite the process of dropping, creating, migrating and seeding the database by using a single command. To do so, navigate to the lib directory and create a new file with .rake extension (I named my file dcms.rake). Inside thew newsly created file add the following code:
+
+```
+namespace :db do
+  task :dcms do
+    desc 'Drop, Create, Migrate and Seed the Database'
+    Rake::Task["db:drop"].invoke
+    Rake::Task["db:create"].invoke
+    Rake::Task["db:migrate"].invoke
+    Rake::Task["db:seed"].invoke
+    puts 'Database dropped, created, migrated and seeded.'
+  end
+end
+```
+
+The above code will invoke each of the Rake tasks in sequence (drop, create, migrate, seed) when running command `rake db:dcms` and will put out "Database dropped, created, migrated and seeded." message when the task has been completed.
+
+Continue coding the backend:
+
 6. Enter `rails c` in the terminal to drop into the Rails console and confirm that the seed data was populated correctly and model relationships are correct.
 7. Navigate to app/controllers/lists_controller.rb and add controller actions:
 
@@ -93,7 +114,7 @@ This will create two migrations, two models, and two empty controllers.
     end
 
     def show
-        list = List.find_by(params[:id])
+        list = List.find(params[:id])
         render json: list, include: [:list_items]
     end
 ```
@@ -101,24 +122,23 @@ This will create two migrations, two models, and two empty controllers.
 8. Navigate to app/serializers/list_serializer.rb and add `had_many :list_items` attribute.
 9. Start Rails server by entering `rails s` in your terminal and navigate to localhost:3000/lists in your browser. Confirm that JSON is rendered correctly on the page.
 10. With the Rails server running, navigate to localhost:3000/lists/1 in your browser. Confirm that JSON is rendered correctly on the page.
-11. Navigate to app/controllers/lists_controller.rb and add create, update and delete controller actions:
+11. Navigate to app/controllers/lists_controller.rb and add create, update and destroy controller actions:
 
 ```
-def create
+    def create
         list = List.create(list_params)
-        render json: list
+        render json: list.save ? list : {message: list.errors.messages[0]}
     end
 
     def update
         list = List.find(params[:id])
-        list = List.update(list_params)
+        list = list.update(list_params)
         render json: list
     end
 
     def destroy
         list = List.find(params[:id])
         list.destroy
-        render json: {listId: list.id}
     end
 
     private
@@ -130,7 +150,7 @@ def create
 12. Navigate to app/controllers/list_items_controller.rb and add controller actions:
 
 ```
-def index
+    def index
         list_items = ListItem.all
         render json: list_items
     end
@@ -143,18 +163,18 @@ def index
 
 13. With the Rails server running, navigate to localhost:3000/list_items in your browser. Confirm that JSON is rendered correctly on the page.
 14. With the Rails server running, navigate to localhost:3000/list_items/1 in your browser. Confirm that JSON is rendered correctly on the page.
-15. Navigate to app/controllers/list_items_controller.rb and add create, update and delete controller actions:
+15. Navigate to app/controllers/list_items_controller.rb and add create, update and destroy controller actions:
 
 ```
     def create
         list = List.find(params[:list_id])
-        list_item = list.list_item.build(list_item_params)
+        list_item = list.list_items.build(list_item_params)
         render json: list_item.save ? list_item : {message: list_item.errors.messages[0]}
     end
 
     def update
-        list = List.find(params[:list_id])
-        list_item = list.list_item.update(list_item_params)
+        list_item = ListItem.find(params[:id])
+        list_item = ListItem.update(list_item_params)
         render json: list_item
     end
 
@@ -165,7 +185,7 @@ def index
 
     private
     def list_item_params
-        params.require(:list_item).permit(:content)
+        params.require(:list_item).permit(:content, :list_id)
     end
 ```
 
@@ -187,7 +207,8 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rails API with JS Project</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
 
@@ -211,18 +232,22 @@ _For this project, I entered the following in my terminal: `mkdir frontend-js`._
 1. Add the following within the <body> tax of index.html to create basic setup for the webpage:
 
 ```
-<div class="container">
-        <div id="new-list-container">
+  <header>
+    <h2>My Lists</h2>
+  </header>
+  <main>
+    <div class="container">
+        <div class="new-list-container">
           <form id="new-list-form">
-            <input type="text" name="list-title" id="new-list-title" value="New List Title">
-            <input type="text" name="list-item" id="new-list-item">
+            <input type="text" name="list-title" id="new-list-title">
             <input type="submit" value="Add List">
           </form>
         </div>
-        <div id="lists-container">
+        <div class="lists-container">
 
         </div>
-</div>
+    </div>
+  </main>
 ```
 
 3. Test that frontend and backend are linked correctly by adding a simple fetch request to index.js; then refresh HTML page in the browser and confirm that JSON data is rendered in the JavaScript console:
@@ -262,7 +287,7 @@ class ListsAdapter {
 }
 ```
 
-9. cd into src/components folder and create the following files: app.js andlists.js by running `mkdir app.js list.js lists.js` command in the terminal.
+9. cd into src/components folder and create the following files: app.js, list.js and lists.js by running `mkdir app.js list.js lists.js` command in the terminal.
 10. Create the App class in app.js:
 
 ```
@@ -280,7 +305,6 @@ The idea is that index.js will get loaded and will call `new App()`, which will 
 ```
 class Lists {
     constructor() {
-        this.lists = []
         this.addEventListenersAndBindings()
         this.adapter = new ListsAdapter()
     }
@@ -293,17 +317,10 @@ class Lists {
     }
 
     loadLists() {
-        this.adapter.getLists().then(lists => {
-            lists.forEach(list => this.lists.push(new List(list))
-            )
+        this.adapter.getLists()
+        .then(lists => {
+            lists.forEach(list => new List (list))
         })
-        .then(() => {
-            this.renderLists()
-        })
-    }
-
-    renderLists() {
-        this.lists.map(list => list.renderList())
     }
 }
 ```
@@ -320,10 +337,11 @@ class List {
         this.listItems = listJSON.list_items
         this.adapter = new ListsAdapter()
         this.addBindings()
+        this.renderList()
     }
 
     addBindings() {
-        this.listsContainer = document.querySelector("#lists-container")
+        this.listsContainer = document.querySelector(".lists-container")
     }
 
     renderList() {
@@ -334,7 +352,7 @@ class List {
         const inputText = document.createElement("input")
         const inputButton = document.createElement("input")
 
-        div.setAttribute("id", "list-container")
+        div.setAttribute("class", "list-container")
         div.setAttribute("data-list-id", this.id)
         h3.setAttribute("title-list-id", this.id)
         ul.setAttribute("data-list-id", this.id)
@@ -352,6 +370,7 @@ class List {
         deleteButton.setAttribute("button-list-id", this.id)
         deleteButton.setAttribute("type", "submit")
         deleteButton.setAttribute("value", "Delete List")
+        deleteButton.setAttribute("class", "delete-list-button")
 
         h3.innerText = this.title
 
@@ -393,6 +412,7 @@ class ListItem {
 
         const deleteButton = document.createElement("input")
         deleteButton.setAttribute("button-list-item-id", this.id)
+        deleteButton.setAttribute("class", "delete-list-item-button")
         deleteButton.setAttribute("type", "submit")
         deleteButton.setAttribute("value", "Delete List Item")
 
@@ -407,41 +427,58 @@ The point of the ListItems class is to house all the HTML and DOM manipulation l
 14. Next, focus on add list and add list item functionality of the app. Navigate to lists.js and add the following to Lists class:
 
 ```
-addList(e) {
+    addList(e) {
         e.preventDefault()
-        const newListValue = this.newListInput.value
-        const newList = {
-            title: newListValue
+        if (this.newListInput.value) {
+           const newListValue = this.newListInput.value
+            const newList = {
+                title: newListValue
+            }
+            this.adapter.createList(newList)
+            .then(list => new List (list))
+            this.newListInput.value = ''
+        } else {
+            this.errorMessage()
+            this.newListInput.value = ''
         }
-        this.adapter.createList(newList)
-        .then(list => this.lists.push(new List(list)))
-        .then(this.renderLists())
-        this.newListInput.value = ''
+    }
+
+    errorMessage() {
+        alert("Please enter list title.")
     }
 ```
 
 Navigate to list.js and add the following to List class:
 
 ```
-addListItem(e) {
+    addListItem(e) {
         e.preventDefault()
         const newListItemInput = document.querySelector(`input[data-list-id="${this.id}"]`)
-        const newListItemValue = newListItemInput.value
-        const listId = this.id
-        const newListItem = {
-            listId: listId,
-            content: newListItemValue
-        }
-        this.adapter.createListItem(newListItem)
-        .then(json => new ListItem (json))
-        newListItemInput.value = ''
+        if (newListItemInput.value) {
+            const newListItemValue = newListItemInput.value
+            const listId = this.id
+            const newListItem = {
+                listId: listId,
+                content: newListItemValue
+            }
+            this.adapter.createListItem(newListItem)
+            .then(json => new ListItem (json))
+            newListItemInput.value = ''
+         } else {
+            this.errorMessage()
+            newListItemInput.value = ''
+         }
+    }
+
+    errorMessage() {
+        alert("Please enter list item.")
     }
 ```
 
 Navigate to listsAdapter.js and add the following to ListsAdapter class:
 
 ```
-createList(newList) {
+    createList(newList) {
         const formData = {
             title: newList.title
         }
@@ -484,7 +521,7 @@ deleteButton.addEventListener('click', this.deleteListItem.bind(this))
 Add the following to ListItem class within listItem.js:
 
 ```
-deleteListItem(e) {
+    deleteListItem(e) {
         e.preventDefault()
         const id = this.id
         this.adapter.deleteListItem(id)
@@ -501,7 +538,7 @@ deleteButton.addEventListener('click', this.deleteList.bind(this))
 Add the following to List class within list.js:
 
 ```
-deleteList(e) {
+    deleteList(e) {
         e.preventDefault()
         const id = this.id
         this.adapter.deleteList(id)
@@ -512,7 +549,7 @@ deleteList(e) {
 Navigate to listsAdapter.js and add the following to ListsAdapter class:
 
 ```
-deleteListItem(id) {
+    deleteListItem(id) {
         const formData = {
             id: id
         }
