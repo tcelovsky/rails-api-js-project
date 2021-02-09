@@ -579,3 +579,131 @@ Navigate to listsAdapter.js and add the following to ListsAdapter class:
         return fetch(`${this.listsUrl}/${id}`, configObj)
     }
 ```
+
+Continue checking the functionanlity of your app as you go.
+
+## Adding Styles
+
+1. In the styles folder create file styles.css
+2. cd into styles.css
+3. Add css styles, example is below for the styles used for my app:
+
+```
+body {
+  margin: 20px;
+  padding: 0;
+}
+
+header {
+  background-color: #eeeeee;
+  margin: 0 auto;
+  height: 50px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+div.lists-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 15px;
+  place-content: stretch;
+  grid-auto-flow: row;
+}
+
+div.new-list-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div.list-container {
+  background-color: #eeeeee;
+  height: 250px;
+  width: 250px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 1em 1em 0em 0em;
+  justify-self: start;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: black;
+  font-family: Helvetica;
+  margin: 0.65em 0.75em;
+}
+
+h3 {
+  font-size: 1em;
+  color: black;
+  font-family: Helvetica;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 10px;
+  text-align: left;
+}
+
+li {
+  font-family: Helvetica;
+  font-size: 0.85em;
+  list-style: inside;
+}
+
+input[type="submit" i] {
+  font-size: 0.65em;
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 1em;
+  padding: 0px 6px;
+}
+
+input[type="text" i] {
+  border-radius: 10px;
+}
+
+input.delete-list-item-button {
+  float: right;
+}
+
+input.delete-list-button {
+  font-size: 0.75em;
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 1em;
+  float: right;
+}
+
+@media only screen and (min-width: 500px) {
+  div.lists-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  div.lists-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+```
+
+4. Navigate to index.html and link styles.css to index.html by adding the following within the `<head>` tag:
+
+```
+<link rel="stylesheet" href="./styles/styles.css">
+```
