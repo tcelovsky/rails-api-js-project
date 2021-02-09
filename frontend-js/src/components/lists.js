@@ -25,7 +25,7 @@ class Lists {
             title: newListValue
         }
         this.adapter.createList(newList)
-        .then(list => this.lists.push(new List(list)))
+        .then(list => new List (list))
         this.newListInput.value = ''
     }
 }
