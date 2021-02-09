@@ -58,15 +58,19 @@ class List {
     addListItem(e) {
         e.preventDefault()  
         const newListItemInput = document.querySelector(`input[data-list-id="${this.id}"]`)
-        const newListItemValue = newListItemInput.value
-        const listId = this.id
-        const newListItem = {
-            listId: listId,
-            content: newListItemValue
-        }
-        this.adapter.createListItem(newListItem)
-        .then(json => new ListItem (json))
-        newListItemInput.value = ''
+        if (newListItemInput.value) {
+            const newListItemValue = newListItemInput.value
+            const listId = this.id
+            const newListItem = {
+                listId: listId,
+                content: newListItemValue
+            }
+            this.adapter.createListItem(newListItem)
+            .then(json => new ListItem (json))
+            newListItemInput.value = ''
+         } else {
+            newListItemInput.value = ''
+         }
     }
 
     deleteList(e) {
