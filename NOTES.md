@@ -1,6 +1,6 @@
 # Rails API with Javascript Project
 
-The purpose of this file is to keep continuous notes while working on the project. The intent is to document decisions made and steps taken while coding this project. This file is intended to be a rough draft and will be added to .gitignore. These notes will be utilized to create a README.md file for this project.
+The purpose of this file is to keep continuous notes while working on the project. The intent is to document decisions made and steps taken while coding this project. These notes will be utilized to create a README.md file for this project.
 
 ## Description of the Project
 
