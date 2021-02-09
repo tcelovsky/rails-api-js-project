@@ -39,7 +39,6 @@ class List {
         deleteButton.setAttribute("type", "submit")
         deleteButton.setAttribute("value", "Delete List")
         deleteButton.addEventListener('click', this.deleteList.bind(this))
-        
 
         h3.innerText = this.title
 
