@@ -70,6 +70,7 @@ h2 {
   color: rgb(0, 0, 172);
   font-family: Helvetica;
   margin: 0.65em 0.75em;
+  text-shadow: 2px 2px #eeeeee;
 }
 
 h3 {
