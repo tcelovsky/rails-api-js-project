@@ -698,6 +698,14 @@ input[type="submit" i] {
   padding: 0px 6px;
 }
 
+input[type="submit" i]:hover,
+input[type="submit" i]:focus {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+  position: relative;
+  z-index: 5;
+}
+
 input[type="text" i] {
   border-radius: 10px;
 }
