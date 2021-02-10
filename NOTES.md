@@ -4,7 +4,7 @@ The purpose of this file is to keep continuous notes while working on the projec
 
 ## Description of the Project
 
-This project will be built using Rails API for the backend and JavaScript, HTML and CSS for the frontend. Styles will be provided by CSS. This project will be a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user will be able to add and delete the items on each list. The user will also be able to create and delete the lists.
+This project will be built using Rails API for the backend and JavaScript, HTML and CSS for the frontend. Styles will be provided by CSS. This project will be a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user will be able to add and delete the items on each list. A user will also be able to create and delete the lists.
 
 ## Creating GitHub Repository
 
