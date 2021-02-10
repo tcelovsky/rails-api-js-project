@@ -591,26 +591,43 @@ Continue checking the functionanlity of your app as you go.
 ```
 body {
   margin: 20px;
-  padding: 0;
+  color: #444;
+  line-height: 20px;
+  background: #fff;
+  background: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      from(#d9eaf3),
+      color-stop(4%, #fff)
+    )
+    0 4px;
+  background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  -webkit-background-size: 100% 20px;
+  -moz-background-size: 100% 20px;
+  -ms-background-size: 100% 20px;
+  -o-background-size: 100% 20px;
+  background-size: 100% 20px;
 }
 
 header {
-  background-color: #eeeeee;
   margin: 0 auto;
   height: 50px;
-  box-shadow: 10px 10px grey;
   padding: 10px;
-  border-radius: 10px;
   text-align: center;
 }
 
 div.lists-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   column-gap: 10px;
   row-gap: 15px;
-  place-content: stretch;
+  place-content: start;
   grid-auto-flow: row;
 }
 
@@ -620,27 +637,36 @@ div.new-list-container {
 }
 
 div.list-container {
-  background-color: #eeeeee;
   height: 250px;
   width: 250px;
-  box-shadow: 10px 10px grey;
+  color: #000;
+  background: #ffc;
+  box-shadow: 10px 10px #eeeeee;
   padding: 10px;
-  border-radius: 10px;
   text-align: center;
   margin: 1em 1em 0em 0em;
   justify-self: start;
 }
 
+div.list-container:hover,
+div.list-container:focus {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+  position: relative;
+  z-index: 5;
+}
+
 h2 {
-  font-size: 1.5em;
-  color: black;
+  font-size: 2.75em;
+  color: rgb(0, 0, 172);
   font-family: Helvetica;
   margin: 0.65em 0.75em;
+  text-shadow: 2px 2px #eeeeee;
 }
 
 h3 {
   font-size: 1em;
-  color: black;
+  color: rgb(0, 0, 172);
   font-family: Helvetica;
 }
 
@@ -659,12 +685,13 @@ li {
   font-family: Helvetica;
   font-size: 0.85em;
   list-style: inside;
+  color: rgb(0, 0, 172);
 }
 
 input[type="submit" i] {
   font-size: 0.65em;
   color: white;
-  background-color: grey;
+  background-color: rgb(68, 55, 255);
   border-radius: 10px;
   text-align: center;
   margin-left: 1em;
@@ -682,7 +709,7 @@ input.delete-list-item-button {
 input.delete-list-button {
   font-size: 0.75em;
   color: white;
-  background-color: grey;
+  background-color: rgb(68, 55, 255);
   border-radius: 10px;
   text-align: center;
   margin-left: 1em;
@@ -697,9 +724,10 @@ input.delete-list-button {
 
 @media only screen and (min-width: 850px) {
   div.lists-container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
 ```
 
 4. Navigate to index.html and link styles.css to index.html by adding the following within the `<head>` tag:
