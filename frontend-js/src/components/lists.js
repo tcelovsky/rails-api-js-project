@@ -2,7 +2,6 @@ class Lists {
     constructor() {
         this.addEventListenersAndBindings()
         this.adapter = new ListsAdapter()
-        this.lists = []
     }
 
     addEventListenersAndBindings() {
