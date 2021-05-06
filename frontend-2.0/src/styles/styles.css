@@ -30,7 +30,7 @@ header {
   text-align: center;
 }
 
-div.lists-container {
+#lists-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -45,7 +45,7 @@ div.new-list-container {
   margin-bottom: 1em;
 }
 
-div.list-container {
+.list-card {
   height: 250px;
   width: 250px;
   color: #000;
@@ -57,8 +57,8 @@ div.list-container {
   justify-self: start;
 }
 
-div.list-container:hover,
-div.list-container:focus {
+.list-card:hover,
+.list-card:focus {
   box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
   transform: scale(1.05);
   position: relative;
@@ -134,13 +134,13 @@ input.delete-list-button {
 }
 
 @media only screen and (min-width: 500px) {
-  div.lists-container {
+  .lists-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media only screen and (min-width: 850px) {
-  div.lists-container {
+  .lists-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
