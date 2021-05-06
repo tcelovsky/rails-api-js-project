@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListTitle from './ListTitle';
-import ListItem from './ListItems';
+import ListItems from './ListItems';
 
 class ListCard extends Component {
     
