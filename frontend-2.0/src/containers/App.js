@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchLists } from '../actions/listActions';
+import Lists from '../components/Lists';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
     return (
         <div className="App">
           <Switch>
+            <Lists />
             {/* <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} /> */}
             {/* <Route path='/lists' render={routerProps =>
 	            <Lists {...routerProps} lists={this.props.lists} />} /> */}
