@@ -6,13 +6,10 @@ class Lists extends Component {
 
     generateLists = () => {
         return this.props.lists.map(list => 
-            <ListCard key={list.id} list={list} />
+            <Link key={list.id} to={`/lists/${list.id}`}>
+                {<ListCard key={list.id} list={list} />}
+            </Link>
         )
-        // return this.props.lists.map(list => 
-        //     <Link key={list.id} to={`/lists/${list.id}`}>
-        //         {<ListCard key={list.id} list={list} />}
-        //     </Link>
-        // )
     }
 
     render() {
