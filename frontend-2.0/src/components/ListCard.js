@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListTitle from './ListTitle';
-import ListItem from './ListItem';
+import ListItem from './ListItems';
 
 class ListCard extends Component {
     
@@ -8,7 +8,7 @@ class ListCard extends Component {
         return (
             <div className="list-card" id={this.props.list.id}>
                 <ListTitle title={this.props.list.title}/>
-                <ListItem items={this.props.list.list_items}/>
+                <ListItems items={this.props.list.list_items}/>
             </div>
         )
     }
