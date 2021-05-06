@@ -1,23 +1,40 @@
 import '../styles/styles.css';
+import React, { Component } from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchLists } from '../actions/listActions';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchLists()
+  }
+  
+  render() {
+    return (
+        <div className="App">
+          <Switch>
+            {/* <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} /> */}
+            {/* <Route path='/lists' render={routerProps =>
+	            <Lists {...routerProps} lists={this.props.lists} />} /> */}
+            {/* <Route path='/about' component={About} /> */}
+          </Switch>
+        </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    lists: state.lists,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchLists: () => dispatch(fetchLists())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
