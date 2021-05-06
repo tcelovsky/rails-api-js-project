@@ -15,7 +15,7 @@ class App extends Component {
     return (
         <div className="App">
           <Switch>
-            <Lists />
+            <Lists lists={this.props.lists}/>
             {/* <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} /> */}
             {/* <Route path='/lists' render={routerProps =>
 	            <Lists {...routerProps} lists={this.props.lists} />} /> */}
