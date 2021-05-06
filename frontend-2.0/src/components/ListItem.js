@@ -4,9 +4,9 @@ class ListItem extends Component {
 
     render() {
         return (
-            <div className="list-item">
-                {console.log(this.props.item)}
-            </div>
+            <ul className="list-items">
+                <li className="list-item">{this.props.content}</li>
+            </ul>
         )
     }
 }
