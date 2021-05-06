@@ -6,15 +6,15 @@
 
 *.gem
 *.rbc
-backend-rails-api/.config
-backend-rails-api/coverage/
-backend-rails-api/InstalledFiles
-backend-rails-api/pkg/
-backend-rails-api/spec/reports/
-backend-rails-api/spec/examples.txt
-backend-rails-api/test/tmp/
-backend-rails-api/test/version_tmp/
-backend-rails-api/tmp/
+backend/.config
+backend/coverage/
+backend/InstalledFiles
+backend/pkg/
+backend/spec/reports/
+backend/spec/examples.txt
+backend/test/tmp/
+backend/test/version_tmp/
+backend/tmp/
 
 # Used by dotenv library to load environment variables.
 # .env
@@ -39,15 +39,15 @@ build-iPhoneSimulator/
 # vendor/Pods/
 
 ## Documentation cache and generated files:
-backend-rails-api/.yardoc/
-backend-rails-api/_yardoc/
-backend-rails-api/doc/
-backend-rails-api/rdoc/
+backend/.yardoc/
+backend/_yardoc/
+backend/doc/
+backend/rdoc/
 
 ## Environment normalization:
-backend-rails-api/.bundle/
-backend-rails-api/vendor/bundle
-backend-rails-api/lib/bundler/man/
+backend/.bundle/
+backend/vendor/bundle
+backend/lib/bundler/man/
 
 # for a library or gem, you might want to ignore these files since the code is
 # intended to run in multiple environments; otherwise, check them in:
@@ -62,20 +62,20 @@ backend-rails-api/lib/bundler/man/
 # .rubocop-https?--*
 
 # Ignore all logfiles and tempfiles.
-backend-rails-api/log/*
-backend-rails-api/tmp/*
+backend/log/*
+backend/tmp/*
 !/log/.keep
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-backend-rails-api/tmp/pids/*
+backend/tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-backend-rails-api/storage/*
+backend/storage/*
 !/storage/.keep
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-backend-rails-api/config/master.key
+backend/config/master.key
