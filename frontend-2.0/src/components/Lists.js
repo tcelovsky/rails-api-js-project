@@ -5,9 +5,9 @@ import ListCard from './ListCard';
 class Lists extends Component {
 
     generateLists = () => {
-        return this.props.lists.map(list => {
+        return this.props.lists.map(list => 
             <ListCard key={list.id} list={list} />
-        })
+        )
         // return this.props.lists.map(list => 
         //     <Link key={list.id} to={`/lists/${list.id}`}>
         //         {<ListCard key={list.id} list={list} />}
