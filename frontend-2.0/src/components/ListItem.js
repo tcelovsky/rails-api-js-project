@@ -5,7 +5,7 @@ class ListItem extends Component {
     render() {
         return (
             <ul className="list-items">
-                <li className="list-item">{this.props.content}</li>
+                <li className="list-item" id={this.props.item.id}>{this.props.item.content}</li>
             </ul>
         )
     }
