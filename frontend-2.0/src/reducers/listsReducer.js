@@ -11,10 +11,6 @@ const listsReducer = (state = {
             return {
                 ...state, lists: action.lists, loading: false
             }
-        // case 'ADD_LIST':
-        //     return {
-        //         lists: 
-        //     }
         default: 
             return state;
     }
