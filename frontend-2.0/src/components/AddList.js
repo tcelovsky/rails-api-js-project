@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addList } from '../actions/listActions';
+import { connect } from 'react-redux';
 
 class AddList extends Component {
     constructor() {
@@ -20,7 +21,7 @@ class AddList extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault();
+        // e.preventDefault();
         addList(this.state.list)
     }
 
