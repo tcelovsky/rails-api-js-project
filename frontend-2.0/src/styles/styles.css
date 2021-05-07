@@ -55,6 +55,7 @@ div.new-list-container {
   text-align: center;
   margin: 1em 1em 0em 0em;
   justify-self: start;
+  text-decoration: none;
 }
 
 .list-card:hover,
@@ -63,6 +64,7 @@ div.new-list-container {
   transform: scale(1.05);
   position: relative;
   z-index: 5;
+  text-decoration: none;
 }
 
 h2 {
