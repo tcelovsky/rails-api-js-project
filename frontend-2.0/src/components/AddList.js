@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CreateList extends Component {
+class AddList extends Component {
 
     render() {
         return (
@@ -14,4 +14,4 @@ class CreateList extends Component {
     }
 }
 
-export default CreateList;
+export default AddList;
