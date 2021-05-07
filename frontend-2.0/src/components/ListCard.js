@@ -8,7 +8,7 @@ class ListCard extends Component {
     render() {
         return (
             <div className="list-card" id={this.props.list.id}>
-                <DeleteListButton />
+                <DeleteListButton id={this.props.list.id}/>
                 <ListTitle title={this.props.list.title}/>
                 <ListItems items={this.props.list.list_items}/>
             </div>

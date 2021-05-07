@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { deleteList } from '../actions/listActions';
 
 class DeleteListButton extends Component {
-    handleSubmit = e => {
+    handleClick = e => {
         e.preventDefault();
-        console.log(e.target)
-        // const id = e.target.id
-        // deleteList(id)
-        // .then(e.target.parentElement.parentElement.remove())
+        const id = e.target.id
+        deleteList(id)
+        .then(e.target.parentElement.parentElement.parentElement.remove())
     }
 
     render() {
         return (
-            <div className="delete-list-button">
-                <form onSubmit={ e => this.handleSubmit(e) }>
-                    <input type="submit" value="x"></input>
-                </form>
+            <div className="button-holder">
+                <button  type="button" id={this.props.id} className="delete-list-button" onClick={ e => this.handleClick(e) }>
+                    x
+                </button>
             </div>
         );
     }
