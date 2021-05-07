@@ -1,4 +1,4 @@
-# Rails API with Javascript Project
+# My Lists
 
 This is a single page web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user is able to add and delete the items on each list. A user is also able to create and delete the lists.
 
