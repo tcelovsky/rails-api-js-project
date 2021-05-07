@@ -8,7 +8,6 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
 import About from '../components/About';
-import AddList from '../components/AddList';
 
 class App extends Component {
 
@@ -21,7 +20,6 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Header />
-          <AddList />
           <Switch>
             <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} />
             <Route path='/lists' render={routerProps =>
