@@ -10,9 +10,9 @@ class ListItems extends Component {
 
     render() {
         return (
-            <div className="list-items-container">
+            <ul className="list-items-container">
                 {this.generateListItems()}
-            </div>
+            </ul>
         )
     }
 }
