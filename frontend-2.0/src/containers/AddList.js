@@ -26,7 +26,7 @@ class AddList extends Component {
 
     render() {
         return (
-            <div className="new-list-container">
+            <div className="add-list-container">
                 <form onSubmit={ e => this.handleSubmit(e) }>
                     <input type="text" onChange={this.handleChange} value={this.state.list.title}></input>
                     <input type="submit" value="Add List"></input>
