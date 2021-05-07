@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ListCard from './ListCard';
+import AddList from './AddList';
 
 class Lists extends Component {
 
@@ -14,9 +15,12 @@ class Lists extends Component {
 
     render() {
         return (
-            <div id="lists-container">
-                {this.generateLists()}
-            </div>
+            <main>
+                <AddList />
+                <div id="lists-container">
+                    {this.generateLists()}
+                </div>
+            </main>
         )
     }
 }
