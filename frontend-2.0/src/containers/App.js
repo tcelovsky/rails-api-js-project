@@ -7,6 +7,7 @@ import Lists from '../components/Lists';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
+import About from '../components/About';
 
 class App extends Component {
 
@@ -23,7 +24,7 @@ class App extends Component {
             <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} />
             <Route path='/lists' render={routerProps =>
 	            <Lists {...routerProps} lists={this.props.lists} />} />
-            {/* <Route path='/about' component={About} /> */}
+            <Route path='/about' component={About} />
           </Switch>
         </div>
     );
