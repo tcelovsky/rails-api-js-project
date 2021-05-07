@@ -2,7 +2,7 @@ import '../styles/styles.css';
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchLists } from '../actions/listActions';
+import { fetchLists } from '../actions/listsActions';
 import Lists from '../components/Lists';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
