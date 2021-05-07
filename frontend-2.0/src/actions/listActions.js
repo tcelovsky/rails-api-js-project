@@ -17,3 +17,17 @@ export const addList = (list) => {
     .then(response => response.json())
 }
 
+export const deleteList = (id) => {
+  const data = {
+    id: id
+  }
+  const configObj = {
+    method: "DELETE",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  }
+  return fetch(`${LISTS_URL}/${id}`, configObj)
+}
