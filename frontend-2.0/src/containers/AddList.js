@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { addList } from '../actions/listActions';
-import { connect } from 'react-redux';
 
 class AddList extends Component {
     constructor() {
