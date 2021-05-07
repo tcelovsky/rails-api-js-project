@@ -12,7 +12,7 @@ const NavBar = () => {
             <NavLink className="nav-link" to='/lists' exact>My Lists</NavLink>
           </li>
           <li className="nav-item">
-            {/* <NavLink className="nav-link" to='/about' exact>About</NavLink> */}
+            <NavLink className="nav-link" to='/about' exact>About</NavLink>
           </li>
         </ul>
     </nav>
