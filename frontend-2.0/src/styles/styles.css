@@ -156,9 +156,15 @@ input[type="text" i] {
   border-radius: 10px;
 }
 
-/* <!-- Delete List Item Button --> */
-input.delete-list-item-button {
+/* <!-- Delete Item Button --> */
+.delete-item-button {
   float: right;
+  font-size: 0.65em;
+  color: white;
+  background-color: rgb(68, 55, 255);
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 1em;
 }
 
 /* <!-- Delete List Button --> */
