@@ -6,6 +6,7 @@ import { fetchLists } from '../actions/listActions';
 import Lists from '../components/Lists';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import Home from '../components/Home';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
           <Navbar />
           <Header />
           <Switch>
-            {/* <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} /> */}
+            <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} />
             <Route path='/lists' render={routerProps =>
 	            <Lists {...routerProps} lists={this.props.lists} />} />
             {/* <Route path='/about' component={About} /> */}
