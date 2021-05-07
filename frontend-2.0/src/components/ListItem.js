@@ -6,7 +6,7 @@ class ListItem extends Component {
     render() {
         return (
             <li className="list-item" id={this.props.item.id}>{this.props.item.content}
-            <DeleteItemButton />
+            <DeleteItemButton id={this.props.item.id}/>
             </li>
         )
     }

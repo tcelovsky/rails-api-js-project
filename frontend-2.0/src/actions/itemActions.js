@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000"
-const LISTS_URL = `${BASE_URL}/lists`
+const LIST_ITEMS_URL = `${BASE_URL}/list_items`
 
 // export const addList = (list) => {
 //   const data = {
@@ -29,5 +29,5 @@ export const deleteItem = (id) => {
     },
     body: JSON.stringify(data)
   }
-  return fetch(`${LISTS_URL}/${id}`, configObj)
+  return fetch(`${LIST_ITEMS_URL}/${id}`, configObj)
 }

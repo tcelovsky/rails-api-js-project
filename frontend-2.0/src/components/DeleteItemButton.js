@@ -12,7 +12,8 @@ class DeleteItemButton extends Component {
     render() {
         return (
             <div className="button-holder">
-                <button  type="button" id={this.props.id} className="delete-item-button" onClick={ e => this.handleClick(e) }>
+                <button  type="button" id={this.props.id} 
+                className="delete-item-button" onClick={ e => this.handleClick(e) }>
                     x
                 </button>
             </div>
