@@ -4,6 +4,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchLists } from '../actions/listActions';
 import Lists from '../components/Lists';
+import Header from '../components/Header';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
+          <Header />
           <Switch>
             {/* <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} /> */}
             <Route path='/lists' render={routerProps =>
