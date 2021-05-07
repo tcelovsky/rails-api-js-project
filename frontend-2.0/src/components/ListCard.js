@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ListTitle from './ListTitle';
-import ListItems from './ListItems';
+import Items from './Items';
 import DeleteListButton from './DeleteListButton';
+import AddItem from '../containers/AddItem';
 
 class ListCard extends Component {
     
@@ -10,7 +11,8 @@ class ListCard extends Component {
             <div className="list-card" id={this.props.list.id}>
                 <DeleteListButton id={this.props.list.id}/>
                 <ListTitle title={this.props.list.title}/>
-                <ListItems items={this.props.list.list_items}/>
+                <Items items={this.props.list.list_items}/>
+                <AddItem id={this.props.list.id}/>
             </div>
         )
     }

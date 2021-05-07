@@ -6,7 +6,8 @@ class AddItem extends Component {
         super();
         this.state = {
           item: {
-              content: ''
+              content: '',
+              list_id: ''
           }
         };
       }
@@ -14,22 +15,23 @@ class AddItem extends Component {
     handleChange = e => {
         this.setState({
             item: {
-                content: e.target.value
+                content: e.target.value,
+                list_id: this.props.id
             }
         })
     }
 
     handleSubmit = e => {
         // e.preventDefault();
-        addList(this.state.item)
+        addItem(this.state.item)
     }
 
     render() {
         return (
             <div className="add-item-container">
-                <form onSubmit={ e => this.handleSubmit(e) }>
+                <form>
                     <input type="text" onChange={this.handleChange} value={this.state.item.content}></input>
-                    <input type="submit" value="Add Item"></input>
+                    <input type="submit" value="Add Item" onClick={e => this.handleSubmit(e)}></input>
                 </form>
             </div>
         );

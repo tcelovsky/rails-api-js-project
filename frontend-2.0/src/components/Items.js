@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem';
+import Item from './Item';
 
-class ListItems extends Component {
+class Items extends Component {
+
     generateListItems = () => {
         return this.props.items.map(item => 
-            <ListItem key={item.id} item={item} />
+            <Item key={item.id} item={item} />
         )
     }
 
@@ -17,4 +18,4 @@ class ListItems extends Component {
     }
 }
 
-export default ListItems;
+export default Items;

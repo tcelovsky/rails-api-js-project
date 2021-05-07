@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DeleteItemButton from './DeleteItemButton';
 
-class ListItem extends Component {
+class Item extends Component {
 
     render() {
         return (
@@ -12,4 +12,4 @@ class ListItem extends Component {
     }
 }
 
-export default ListItem;
+export default Item;
