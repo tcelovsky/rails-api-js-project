@@ -156,10 +156,12 @@ input[type="text" i] {
   border-radius: 10px;
 }
 
+/* <!-- Delete List Item Button --> */
 input.delete-list-item-button {
   float: right;
 }
 
+/* <!-- Delete List Button --> */
 .delete-list-button {
   font-size: 0.75em;
   color: white;
