@@ -133,6 +133,7 @@ li {
   color: rgb(0, 0, 172);
 }
 
+/* <!-- Inputs --> */
 input[type="submit" i] {
   font-size: 0.65em;
   color: white;
@@ -159,7 +160,7 @@ input.delete-list-item-button {
   float: right;
 }
 
-input.delete-list-button {
+.delete-list-button {
   font-size: 0.75em;
   color: white;
   background-color: rgb(68, 55, 255);
