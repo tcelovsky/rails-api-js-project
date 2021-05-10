@@ -1,12 +1,13 @@
 class ListItemsController < ApplicationController
+    before_action :set_list_item, only: [:show, :update, :destroy]
+
     def index 
         list_items = ListItem.all
         render json: list_items
     end
 
     def show
-        list_item = ListItem.find(params[:id])
-        render json: list_item
+        render json: @list_item
     end
 
     def create
@@ -16,18 +17,20 @@ class ListItemsController < ApplicationController
     end
 
     def update
-        list_item = ListItem.find(params[:id])
-        list_item = ListItem.update(list_item_params)
+        @list_item = ListItem.update(list_item_params)
         render json: list_item
     end
 
     def destroy
-        list_item = ListItem.find(params[:id])
-        list_item.delete
+        @list_item.delete
     end
 
     private
     def list_item_params
         params.require(:list_item).permit(:content, :list_id)
+    end
+
+    def set_list_item
+        @list_item = ListItem.find(params[:id])
     end
 end
