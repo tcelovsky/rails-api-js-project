@@ -27,13 +27,19 @@ class AddItem extends Component {
         e.preventDefault();
         addItem(this.state.item)
         .then(json => this.props.fetchLists(json))
+        .then(this.setState({
+            item: {
+                content: '',
+                list_id: ''
+            }
+        }))
     }
 
     render() {
         return (
             <div className="add-item-container">
                 <form>
-                    <input type="text" onChange={this.handleChange}></input>
+                    <input type="text" onChange={this.handleChange} value={this.state.item.content}></input>
                     <input type="submit" value="Add Item" onClick={e => this.handleSubmit(e)}></input>
                 </form>
             </div>
