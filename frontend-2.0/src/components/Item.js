@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DeleteItemButton from './DeleteItemButton';
+import DeleteItemButton from '../containers/DeleteItemButton';
 
 class Item extends Component {
 

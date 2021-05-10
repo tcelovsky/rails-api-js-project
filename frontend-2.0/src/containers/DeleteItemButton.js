@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { deleteItem } from '../actions/itemActions';
+import { fetchLists } from '../actions/listsActions';
+import { connect } from 'react-redux';
 
 class DeleteItemButton extends Component {
     handleClick = e => {
         e.preventDefault();
         const id = e.target.id
         deleteItem(id)
-        .then(e.target.parentElement.parentElement.remove())
+        .then(json => this.props.fetchLists(json))
     }
 
     render() {
@@ -21,4 +23,10 @@ class DeleteItemButton extends Component {
     }
 }
 
-export default DeleteItemButton;
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchLists: () => dispatch(fetchLists())
+    }
+}
+  
+export default connect(null, mapDispatchToProps)(DeleteItemButton);

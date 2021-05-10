@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListTitle from './ListTitle';
 import Items from './Items';
-import DeleteListButton from './DeleteListButton';
+import DeleteListButton from '../containers/DeleteListButton';
 import AddItem from '../containers/AddItem';
 
 class ListCard extends Component {
