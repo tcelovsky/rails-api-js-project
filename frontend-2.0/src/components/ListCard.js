@@ -5,7 +5,7 @@ import DeleteListButton from './DeleteListButton';
 import AddItem from '../containers/AddItem';
 
 class ListCard extends Component {
-    
+
     render() {
         return (
             <div className="list-card" id={this.props.list.id}>
