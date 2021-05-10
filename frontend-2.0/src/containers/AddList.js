@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { addList } from '../actions/listActions';
+import { fetchLists } from '../actions/listsActions';
+import { connect } from 'react-redux';
 
 class AddList extends Component {
     constructor() {
@@ -20,8 +22,14 @@ class AddList extends Component {
     }
 
     handleSubmit = e => {
-        // e.preventDefault();
+        e.preventDefault();
         addList(this.state.list)
+        .then(json => this.props.fetchLists(json))
+        .then(this.setState({
+            list: {
+                title: ''
+            }
+        }))
     }
 
     render() {
@@ -36,4 +44,11 @@ class AddList extends Component {
     }
 }
 
-export default AddList;
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchLists: () => dispatch(fetchLists())
+    }
+}
+  
+export default connect(null, mapDispatchToProps)(AddList);
+// export default AddList;
