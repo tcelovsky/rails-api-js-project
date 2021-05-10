@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TiPencil } from 'react-icons/ti';
 import { editItem } from '../actions/itemActions';
 import { fetchLists } from '../actions/listsActions';
 import { connect } from 'react-redux';
@@ -23,7 +24,7 @@ class EditItemButton extends Component {
         })
     }
 
-    handleSubmit = (e) => {
+    handleClick = (e) => {
         e.preventDefault();
         // editItem(this.state.item)
         // .then(json => this.props.fetchLists(json))
@@ -39,7 +40,9 @@ class EditItemButton extends Component {
         return (
             <div className="button-holder">
                 <button  type="button" id={this.props.id} 
-                className="edit-item-button" onClick={ e => this.handleClick(e) }>Edit</button>
+                className="edit-item-button" onClick={ e => this.handleClick(e) }>
+                    <TiPencil />
+                </button>
             </div>
         );
     }
