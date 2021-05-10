@@ -147,7 +147,6 @@ input[type="submit" i] {
 
 input[type="submit" i]:hover,
 input[type="submit" i]:focus {
-  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
   transform: scale(1.05);
   position: relative;
   z-index: 5;
@@ -169,6 +168,11 @@ input[type="text" i] {
   margin-left: 1em;
 }
 
+.delete-item-button:hover,
+.delete-item-button:focus {
+  transform: scale(1.05);
+}
+
 /* <!-- Delete List Button --> */
 .delete-list-button {
   font-size: 0.75em;
@@ -178,6 +182,11 @@ input[type="text" i] {
   text-align: center;
   margin-left: 1em;
   float: right;
+}
+
+.delete-list-button:hover,
+.delete-list-button:focus {
+  transform: scale(1.1);
 }
 
 /* <!-- About Page --> */
