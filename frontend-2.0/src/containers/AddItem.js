@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { addItem } from '../actions/itemActions';
+import { fetchLists } from '../actions/listsActions';
+import { connect } from 'react-redux';
 
 class AddItem extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props)
         this.state = {
-          item: {
-              content: '',
-              list_id: ''
-          }
-        };
-      }
+            item: {
+                content: '',
+                list_id: ''
+            }
+        }
+    }
 
-    handleChange = e => {
+    handleChange = (e) => {
         this.setState({
             item: {
                 content: e.target.value,
@@ -21,16 +23,17 @@ class AddItem extends Component {
         })
     }
 
-    handleSubmit = e => {
-        // e.preventDefault();
+    handleSubmit = (e) => {
+        e.preventDefault();
         addItem(this.state.item)
+        .then(json => this.props.fetchLists(json))
     }
 
     render() {
         return (
             <div className="add-item-container">
                 <form>
-                    <input type="text" onChange={this.handleChange} value={this.state.item.content}></input>
+                    <input type="text" onChange={this.handleChange}></input>
                     <input type="submit" value="Add Item" onClick={e => this.handleSubmit(e)}></input>
                 </form>
             </div>
@@ -38,4 +41,10 @@ class AddItem extends Component {
     }
 }
 
-export default AddItem;
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchLists: () => dispatch(fetchLists())
+    }
+}
+  
+export default connect(null, mapDispatchToProps)(AddItem);
