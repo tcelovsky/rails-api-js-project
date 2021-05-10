@@ -156,25 +156,8 @@ input[type="text" i] {
   border-radius: 10px;
 }
 
-/* <!-- Delete Item Button --> */
-.delete-item-button {
-  float: right;
-  margin-top: -20px;
-  font-size: 0.65em;
-  color: white;
-  background-color: rgb(68, 55, 255);
-  border-radius: 10px;
-  text-align: center;
-  margin-left: 1em;
-}
-
-.delete-item-button:hover,
-.delete-item-button:focus {
-  transform: scale(1.05);
-}
-
-/* <!-- Delete List Button --> */
-.delete-list-button {
+/* <!-- Buttons --> */
+button {
   font-size: 0.75em;
   color: white;
   background-color: rgb(68, 55, 255);
@@ -184,9 +167,20 @@ input[type="text" i] {
   float: right;
 }
 
-.delete-list-button:hover,
-.delete-list-button:focus {
+button:hover,
+button:focus {
   transform: scale(1.1);
+}
+
+.delete-item-button {
+  margin-top: -20px;
+  font-size: 0.65em;
+}
+
+.edit-item-button {
+  margin-top: -20px;
+  margin-right: 25px;
+  font-size: 0.65em;
 }
 
 /* <!-- About Page --> */
