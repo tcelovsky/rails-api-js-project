@@ -10,8 +10,10 @@ class ListCard extends Component {
     render() {
         return (
             <div className="list-card" id={this.props.list.id}>
-                <EditListButton isEditable={this.isEditable}/>
-                <DeleteListButton id={this.props.list.id}/>
+                <div className="buttons-container">
+                    <DeleteListButton id={this.props.list.id}/>
+                    <EditListButton isEditable={this.isEditable}/>
+                </div>
                 <ListTitle title={this.props.list.title}/>
                 <Items items={this.props.list.list_items}/>
                 <AddItem id={this.props.list.id}/>
