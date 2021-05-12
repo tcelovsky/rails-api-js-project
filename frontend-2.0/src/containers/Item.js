@@ -51,8 +51,10 @@ class Item extends Component {
         } else {
             return (
                 <li className="list-item" id={this.props.item.id}>{this.props.item.content}
-                <DeleteItemButton id={this.props.item.id}/>
-                <EditItemButton isEditable={this.isEditable}/>
+                <div className="buttons-container">
+                    <DeleteItemButton id={this.props.item.id}/>
+                    <EditItemButton isEditable={this.isEditable}/>
+                </div>
                 </li>
             )
         }
