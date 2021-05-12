@@ -1,5 +1,5 @@
 class ListItemsController < ApplicationController
-    before_action :set_list_item, only: [:show, :update, :destroy]
+    before_action :set_list_item, only: [:show, :edit, :update, :destroy]
 
     def index 
         list_items = ListItem.all
@@ -16,8 +16,11 @@ class ListItemsController < ApplicationController
         render json: list_item.save ? list_item : {message: list_item.errors.messages[0]}
     end
 
+    def edit
+    end
+
     def update
-        @list_item = ListItem.update(list_item_params)
+        @list_item.update(list_item_params)
         render json: list_item
     end
 

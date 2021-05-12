@@ -32,3 +32,21 @@ export const deleteItem = (id) => {
   }
   return fetch(`${LIST_ITEMS_URL}/${id}`, configObj)
 }
+
+export const editItem = (item) => {
+  const data = {
+    content: item.content,
+    id: item.id,
+    list_id: item.list_id
+  }
+  const configObj = {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  }
+  return fetch(`${LIST_ITEMS_URL}/${item.id}`, configObj)
+    .then(response => response.json())
+}
