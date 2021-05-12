@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DeleteItemButton from '../containers/DeleteItemButton';
-import EditItemButton from '../containers/EditItemButton';
+import DeleteItemButton from './DeleteItemButton';
+import EditItemButton from '../components/EditItemButton';
 import { editItem } from '../actions/itemActions';
 import { fetchLists } from '../actions/listsActions';
 import { connect } from 'react-redux';
