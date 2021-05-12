@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-    before_action :set_list, only: [:show, :update, :destroy]
+    before_action :set_list, only: [:show, :edit, :update, :destroy]
 
     def index
         lists = List.all
@@ -15,8 +15,11 @@ class ListsController < ApplicationController
         render json: list.save ? list : {message: list.errors.messages[0]}
     end
 
+    def edit
+    end
+
     def update
-        @list = list.update(list_params)
+        @list.update(list_params)
         render json: list
     end
 
