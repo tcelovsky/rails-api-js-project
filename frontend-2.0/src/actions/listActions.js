@@ -17,6 +17,23 @@ export const addList = (list) => {
     .then(response => response.json())
 }
 
+export const editList = (list) => {
+  const data = {
+    title: list.title,
+    id: list.id
+  }
+  const configObj = {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  }
+  return fetch(`${LISTS_URL}/${list.id}`, configObj)
+    .then(response => response.json())
+}
+
 export const deleteList = (id) => {
   const data = {
     id: id
