@@ -18,21 +18,6 @@ export const addItem = (item) => {
     .then(response => response.json())
 }
 
-export const deleteItem = (id) => {
-  const data = {
-    id: id
-  }
-  const configObj = {
-    method: "DELETE",
-    headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify(data)
-  }
-  return fetch(`${LIST_ITEMS_URL}/${id}`, configObj)
-}
-
 export const editItem = (item) => {
   const data = {
     content: item.content,
@@ -50,3 +35,19 @@ export const editItem = (item) => {
   return fetch(`${LIST_ITEMS_URL}/${item.id}`, configObj)
     .then(response => response.json())
 }
+
+export const deleteItem = (id) => {
+  const data = {
+    id: id
+  }
+  const configObj = {
+    method: "DELETE",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  }
+  return fetch(`${LIST_ITEMS_URL}/${id}`, configObj)
+}
+
