@@ -172,14 +172,8 @@ button:focus {
   transform: scale(1.1);
 }
 
-.delete-item-button {
-  margin-top: -20px;
-  font-size: 0.65em;
-}
-
-.edit-item-button {
-  margin-top: -20px;
-  margin-right: 25px;
+.edit-item-button,
+.edit-list-button {
   font-size: 0.65em;
 }
 
