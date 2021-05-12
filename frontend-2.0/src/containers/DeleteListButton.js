@@ -13,11 +13,9 @@ class DeleteListButton extends Component {
 
     render() {
         return (
-            <div className="button-holder">
-                <button  type="button" id={this.props.id} className="delete-list-button" onClick={ e => this.handleClick(e) }>
-                    x
-                </button>
-            </div>
+            <button  type="button" id={this.props.id} className="delete-list-button" onClick={ e => this.handleClick(e) }>
+                x
+            </button>
         );
     }
 }
