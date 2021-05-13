@@ -46,7 +46,7 @@ class Item extends Component {
                     <input type="text" onChange={this.handleChange} defaultValue={this.props.item.content}></input>
                     <input type="submit" value="Save" onClick={e => this.handleSubmit(e)}></input>
                 </form>
-                </div>
+                </div> 
             )
         } else {
             return (
