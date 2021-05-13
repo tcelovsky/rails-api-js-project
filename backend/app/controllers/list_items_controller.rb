@@ -21,7 +21,7 @@ class ListItemsController < ApplicationController
 
     def update
         @list_item.update(list_item_params)
-        render json: list_item
+        render json: @list_item
     end
 
     def destroy
