@@ -81,7 +81,7 @@ backend/storage/*
 backend/config/master.key
 
 #Ignore old frontend directory
-frontend
+frontend-DNU
 
 #Ignore the notes file
 NOTES.md
