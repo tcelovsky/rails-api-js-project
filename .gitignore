@@ -79,3 +79,9 @@ backend/storage/*
 
 # Ignore master key for decrypting credentials and more.
 backend/config/master.key
+
+#Ignore old frontend directory
+frontend
+
+#Ignore the notes file
+NOTES.md
