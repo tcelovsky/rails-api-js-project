@@ -20,7 +20,7 @@ class ListsController < ApplicationController
 
     def update
         @list.update(list_params)
-        render json: list
+        render json: @list
     end
 
     def destroy
