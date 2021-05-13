@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ListCard from './ListCard';
+import ListCard from '../containers/ListCard';
 import AddList from '../containers/AddList';
 
 class Lists extends Component {

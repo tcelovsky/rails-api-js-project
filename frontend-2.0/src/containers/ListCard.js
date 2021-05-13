@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ListTitle from './ListTitle';
-import Items from './Items';
-import DeleteListButton from '../containers/DeleteListButton';
-import AddItem from '../containers/AddItem';
-import EditListButton from './EditListButton';
+import ListTitle from '../components/ListTitle';
+import Items from '../components/Items';
+import DeleteListButton from './DeleteListButton';
+import AddItem from './AddItem';
+import EditListButton from '../components/EditListButton';
 import { editList } from '../actions/listActions';
 import { fetchLists } from '../actions/listsActions';
 import { connect } from 'react-redux';
