@@ -32,40 +32,40 @@ class Item extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         editItem(this.state.item)
-        .then(json => this.props.fetchLists(json))
-        .then(this.setState({
-            isEditable: false
-        }))
+            .then(json => this.props.fetchLists(json))
+            .then(this.setState({
+                isEditable: false
+            }))
     }
 
     render() {
         if (this.state.isEditable) {
             return (
                 <div className="edit-item-container">
-                <form>
-                    <input type="text" onChange={this.handleChange} defaultValue={this.props.item.content}></input>
-                    <input type="submit" value="Save" onClick={e => this.handleSubmit(e)}></input>
-                </form>
-                </div> 
+                    <form>
+                        <input type="text" onChange={this.handleChange} defaultValue={this.props.item.content}></input>
+                        <input type="submit" value="Save" onClick={e => this.handleSubmit(e)}></input>
+                    </form>
+                </div>
             )
         } else {
             return (
                 <li className="list-item" id={this.props.item.id}>{this.props.item.content}
-                <div className="buttons-container">
-                    <DeleteItemButton id={this.props.item.id}/>
-                    <EditItemButton isEditable={this.isEditable}/>
-                </div>
+                    <div className="buttons-container">
+                        <DeleteItemButton id={this.props.item.id} />
+                        <EditItemButton isEditable={this.isEditable} />
+                    </div>
                 </li>
             )
         }
-        
+
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchLists: () => dispatch(fetchLists())
+        fetchLists: () => dispatch(fetchLists())
     }
 }
-  
+
 export default connect(null, mapDispatchToProps)(Item);
