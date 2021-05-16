@@ -23,7 +23,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() => <Link to={'/lists'}><Home /></Link>} />
             <Route path='/lists' render={routerProps =>
-	            <Lists {...routerProps} lists={this.props.lists} />} />
+	            <Lists {...routerProps} lists={this.props.lists.lists} />} />
             <Route path='/about' component={About} />
           </Switch>
         </div>
