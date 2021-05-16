@@ -1,4 +1,4 @@
-const listsReducer = (state = {
+export const listsReducer = (state = {
     lists: [],
     loading: false
 }, action) => {
@@ -15,5 +15,3 @@ const listsReducer = (state = {
             return state;
     }
 }
-
-export default listsReducer;
