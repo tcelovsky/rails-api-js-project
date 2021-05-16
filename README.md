@@ -1,6 +1,6 @@
 # To Do Lists
 
-This web app that allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user is able to create, edit and delete lists. A user is also able to add, edit and delete the items on each list.
+This web app allows a user to create multiple lists and add items to those lists. For example, a user may create To Do list, Grocery Shopping list, Travel Destinations list, etc. A user is able to create, edit and delete lists. A user is also able to add, edit and delete the items on each list.
 
 ## Technology Used
 
