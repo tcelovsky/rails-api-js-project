@@ -32,8 +32,15 @@ export const editItem = (item) => {
     },
     body: JSON.stringify(data)
   }
-  return fetch(`${LIST_ITEMS_URL}/${item.id}`, configObj)
-    .then(response => response.json())
+  return (dispatch) => {
+    fetch(`${LIST_ITEMS_URL}/${item.id}`, configObj)
+      .then(response => {
+        return response.json()
+      })
+      .then(responseJSON => {
+        dispatch({ type: 'EDIT_ITEM', items: responseJSON })
+      })
+  }
 }
 
 export const deleteItem = (id) => {
@@ -49,5 +56,6 @@ export const deleteItem = (id) => {
     body: JSON.stringify(data)
   }
   return fetch(`${LIST_ITEMS_URL}/${id}`, configObj)
+    .then(response => response.json())
 }
 
