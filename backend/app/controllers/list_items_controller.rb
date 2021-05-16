@@ -26,6 +26,7 @@ class ListItemsController < ApplicationController
 
     def destroy
         @list_item.delete
+        render json: @list_item
     end
 
     private
